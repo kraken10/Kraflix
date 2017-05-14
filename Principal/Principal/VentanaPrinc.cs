@@ -14,11 +14,11 @@ namespace Principal
         public Principal()
         {
             InitializeComponent();
+            webBrowser1.Width = 640;
+            webBrowser1.Height = 410;
+            webBrowser1.Url = new Uri("http://streamcloud.eu/7j5o7h4q1wfm#movie_player", true);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
