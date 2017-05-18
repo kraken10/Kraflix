@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Krakflix.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,14 +12,15 @@ namespace Krakflix
 {
     public partial class Principal : Form
     {
+        private User _user;
+        public Principal(User user)
+        {
+            InitializeComponent();
+            _user = user;
+        }
         public Principal()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
+        
 }

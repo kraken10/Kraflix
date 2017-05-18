@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Krakflix.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +10,21 @@ namespace Krakflix.Controlador.Login
     {
         private UserRepository userRepo = new UserRepository();
 
-        public bool verificarUser(string user, string pass)
+        public User verificarUser(string user, string pass)
         {
-            
-            var allUsers = userRepo.GetAll();
-            var query = allUsers.Where(u => u.UserName == user).Where(p => p.Password == pass).ToList();
 
-            if(query.Count > 0)
-                return true;
-            else
-            return false;
+            var allUsers = userRepo.GetAll();
+            User query;
+            try
+            {
+                query = allUsers.Where(u => u.UserName == user).Where(p => p.Password == pass).First();
+            }
+            catch (InvalidOperationException)
+            {
+                return null;
+            }
+            
+            return query;
         }
     }
 }

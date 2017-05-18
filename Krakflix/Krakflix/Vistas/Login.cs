@@ -1,5 +1,6 @@
 ﻿using Krakflix.Controlador;
 using Krakflix.Controlador.Login;
+using Krakflix.Modelo;
 using Krakflix.Vistas;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Krakflix
     {
 
         private LoginController lgcontrol = new LoginController();
-        private Principal princ = new Principal();
+        private Principal princ;
         private Register register = new Register();
         public Login()
         {
@@ -26,16 +27,17 @@ namespace Krakflix
 
         private void btnloginClick(object sender, EventArgs e)
         {
-            bool correcto = lgcontrol.verificarUser(txtUser.Text, TxtPass.Text);
+            User UserCorrecto = lgcontrol.verificarUser(txtUser.Text, TxtPass.Text);
 
-            if (correcto)
+            if (UserCorrecto != null)
             {
+                princ = new Principal(UserCorrecto);
                 Hide();
                 princ.Closed += (s, args) => this.Close();
                 princ.Show();
             }
             else
-                MessageBox.Show("Error", "Datos introducidos incorrectos");
+                MessageBox.Show("Datos introducidos incorrectos", "Error");
         }
 
         private void linkRegister(object sender, LinkLabelLinkClickedEventArgs e)
