@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e343915b5034d0294b49853e814cdda" Name="Diagram1">
+        <EntityTypeShape EntityType="KrakflixDBModel.Chapter" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrakflixDBModel.Film" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrakflixDBModel.Genre" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrakflixDBModel.Serie" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrakflixDBModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KrakflixDBModel.FK_Chapter_Serie" ManuallyRouted="false" />
+        <AssociationConnector Association="KrakflixDBModel.FK_Film_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="KrakflixDBModel.FK_Film_User" ManuallyRouted="false" />
+        <AssociationConnector Association="KrakflixDBModel.FK_Serie_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="KrakflixDBModel.FK_Serie_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

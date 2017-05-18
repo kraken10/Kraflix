@@ -1,4 +1,5 @@
-﻿namespace Krakflix
+﻿using System.Windows.Forms;
+namespace Krakflix
 {
     partial class Principal
     {

@@ -13,10 +13,10 @@ namespace Krakflix.Modelo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KrakflixDBEntities : DbContext
+    public partial class KrakflixDBEntities3 : DbContext
     {
-        public KrakflixDBEntities()
-            : base("name=KrakflixDBEntities")
+        public KrakflixDBEntities3()
+            : base("name=KrakflixDBEntities3")
         {
         }
     

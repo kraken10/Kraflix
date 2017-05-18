@@ -55,45 +55,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\Chapter.cs">
-      <DependentUpon>KrakflixDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Film.cs">
-      <DependentUpon>KrakflixDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Genre.cs">
-      <DependentUpon>KrakflixDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\KrakflixDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KrakflixDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\KrakflixDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KrakflixDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\KrakflixDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KrakflixDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Serie.cs">
-      <DependentUpon>KrakflixDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\User.cs">
-      <DependentUpon>KrakflixDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="Controlador\Login\LoginController.cs" />
+    <Compile Include="Controlador\Registrer\RegisterController.cs" />
+    <Compile Include="Controlador\Repositorios\GenreRepository.cs" />
+    <Compile Include="Controlador\Interfaces\IGenreRepository.cs" />
+    <Compile Include="Controlador\Interfaces\IUserRepository.cs" />
+    <Compile Include="Controlador\Repositorios\UserRepository.cs" />
+    <Compile Include="Vistas\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
+    <Compile Include="Vistas\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Chapter.cs">
+      <DependentUpon>KrakflixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Film.cs">
+      <DependentUpon>KrakflixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Genre.cs">
+      <DependentUpon>KrakflixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\KrakflixModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KrakflixModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\KrakflixModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KrakflixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\KrakflixModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KrakflixModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Serie.cs">
+      <DependentUpon>KrakflixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\User.cs">
+      <DependentUpon>KrakflixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Principal.resx">
+    <Compile Include="Vistas\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vistas\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -104,14 +125,18 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vistas\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
-    <EntityDeploy Include="Modelo\KrakflixDB.edmx">
+    <EntityDeploy Include="Modelo\KrakflixModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KrakflixDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>KrakflixModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelo\KrakflixDB.edmx.diagram">
-      <DependentUpon>KrakflixDB.edmx</DependentUpon>
+    <None Include="Modelo\KrakflixModel.edmx.diagram">
+      <DependentUpon>KrakflixModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -124,23 +149,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controlador\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Modelo\KrakflixDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KrakflixDB.edmx</DependentUpon>
-      <LastGenOutput>KrakflixDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Modelo\KrakflixDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KrakflixDB.edmx</DependentUpon>
-      <LastGenOutput>KrakflixDB.cs</LastGenOutput>
-    </Content>
+    <None Include="Resources\spidey.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modelo\KrakflixModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KrakflixModel.edmx</DependentUpon>
+      <LastGenOutput>KrakflixModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\KrakflixModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KrakflixModel.edmx</DependentUpon>
+      <LastGenOutput>KrakflixModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\defaultPhoto1.png" />
+    <None Include="Resources\defaultPhoto.png" />
+    <None Include="Resources\starwars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

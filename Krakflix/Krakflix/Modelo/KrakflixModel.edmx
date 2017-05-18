@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KrakflixDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KrakflixDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Chapter">
           <Key>
             <PropertyRef Name="IdChapter" />
@@ -25,6 +25,8 @@
           <Property Name="Rate" Type="int" />
           <Property Name="Path" Type="nvarchar(max)" />
           <Property Name="IdGenre" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="PhotoPath" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -44,13 +46,17 @@
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="Rate" Type="int" />
           <Property Name="NumCap" Type="int" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="PhotoPath" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="IdUser" />
           </Key>
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="photoPath" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_Chapter_Serie">
           <End Role="Serie" Type="Self.Serie" Multiplicity="1" />
@@ -76,6 +82,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Film_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Film" Type="Self.Film" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Film">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Serie_Genre">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Serie" Type="Self.Serie" Multiplicity="*" />
@@ -85,6 +103,18 @@
             </Principal>
             <Dependent Role="Serie">
               <PropertyRef Name="IdGenre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Serie_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Serie" Type="Self.Serie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Serie">
+              <PropertyRef Name="IdUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -102,13 +132,20 @@
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Film" EntitySet="Film" />
           </AssociationSet>
+          <AssociationSet Name="FK_Film_User" Association="Self.FK_Film_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Film" EntitySet="Film" />
+          </AssociationSet>
           <AssociationSet Name="FK_Serie_Genre" Association="Self.FK_Serie_Genre">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Serie" EntitySet="Serie" />
           </AssociationSet>
+          <AssociationSet Name="FK_Serie_User" Association="Self.FK_Serie_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Serie" EntitySet="Serie" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KrakflixDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -133,7 +170,10 @@
           <Property Name="Rate" Type="Int32" />
           <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdGenre" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Film_Film" FromRole="Film" ToRole="Genre" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Film_User" FromRole="Film" ToRole="User" />
+          <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -155,8 +195,11 @@
           <Property Name="Year" Type="Int32" Nullable="false" />
           <Property Name="Rate" Type="Int32" />
           <Property Name="NumCap" Type="Int32" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Chapters" Relationship="Self.FK_Chapter_Serie" FromRole="Serie" ToRole="Chapter" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Serie_Genre" FromRole="Serie" ToRole="Genre" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Serie_User" FromRole="Serie" ToRole="User" />
+          <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -164,6 +207,10 @@
           </Key>
           <Property Name="IdUser" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Film_User" FromRole="User" ToRole="Film" />
+          <NavigationProperty Name="Series" Relationship="Self.FK_Serie_User" FromRole="User" ToRole="Serie" />
+          <Property Name="photoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Chapter_Serie">
           <End Role="Serie" Type="Self.Serie" Multiplicity="1" />
@@ -189,6 +236,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Film_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Film" Type="Self.Film" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Film">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Serie_Genre">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Serie" Type="Self.Serie" Multiplicity="*" />
@@ -201,7 +260,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KrakflixDBEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Serie_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Serie" Type="Self.Serie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Serie">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KrakflixDBEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Chapters" EntityType="Self.Chapter" />
           <EntitySet Name="Films" EntityType="Self.Film" />
           <EntitySet Name="Genres" EntityType="Self.Genre" />
@@ -215,8 +286,16 @@
             <End Role="Genre" EntitySet="Genres" />
             <End Role="Film" EntitySet="Films" />
           </AssociationSet>
+          <AssociationSet Name="FK_Film_User" Association="Self.FK_Film_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Film" EntitySet="Films" />
+          </AssociationSet>
           <AssociationSet Name="FK_Serie_Genre" Association="Self.FK_Serie_Genre">
             <End Role="Genre" EntitySet="Genres" />
+            <End Role="Serie" EntitySet="Series" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Serie_User" Association="Self.FK_Serie_User">
+            <End Role="User" EntitySet="Users" />
             <End Role="Serie" EntitySet="Series" />
           </AssociationSet>
         </EntityContainer>
@@ -225,7 +304,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="KrakflixDBModelStoreContainer" CdmEntityContainer="KrakflixDBEntities">
+        <EntityContainerMapping StorageEntityContainer="KrakflixDBModelStoreContainer" CdmEntityContainer="KrakflixDBEntities3">
           <EntitySetMapping Name="Chapters">
             <EntityTypeMapping TypeName="KrakflixDBModel.Chapter">
               <MappingFragment StoreEntitySet="Chapter">
@@ -239,6 +318,7 @@
           <EntitySetMapping Name="Films">
             <EntityTypeMapping TypeName="KrakflixDBModel.Film">
               <MappingFragment StoreEntitySet="Film">
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="IdFilm" ColumnName="IdFilm" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
@@ -246,6 +326,7 @@
                 <ScalarProperty Name="Rate" ColumnName="Rate" />
                 <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="IdGenre" ColumnName="IdGenre" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -260,6 +341,7 @@
           <EntitySetMapping Name="Series">
             <EntityTypeMapping TypeName="KrakflixDBModel.Serie">
               <MappingFragment StoreEntitySet="Serie">
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="IdSerie" ColumnName="IdSerie" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="NumTemp" ColumnName="NumTemp" />
@@ -267,14 +349,17 @@
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Rate" ColumnName="Rate" />
                 <ScalarProperty Name="NumCap" ColumnName="NumCap" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="KrakflixDBModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="photoPath" ColumnName="photoPath" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
