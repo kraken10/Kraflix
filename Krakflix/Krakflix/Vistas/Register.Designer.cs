@@ -43,6 +43,7 @@ namespace Krakflix.Vistas
             this.PhotoUser.BackColor = System.Drawing.Color.Transparent;
             this.PhotoUser.BackgroundImage = global::Krakflix.Properties.Resources.defaultPhoto1;
             this.PhotoUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PhotoUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PhotoUser.Location = new System.Drawing.Point(1042, 29);
             this.PhotoUser.Name = "PhotoUser";
             this.PhotoUser.Size = new System.Drawing.Size(298, 303);
@@ -93,7 +94,7 @@ namespace Krakflix.Vistas
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImage = global::Krakflix.Properties.Resources.starwars;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1492, 770);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtPass2);
             this.Controls.Add(this.txtPass);
