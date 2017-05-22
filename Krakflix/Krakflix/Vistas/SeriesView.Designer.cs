@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeriesView));
             this.SuspendLayout();
             // 
-            // SeriesViewer
+            // SeriesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 613);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+          
+            this.ClientSize = new System.Drawing.Size(1378, 780);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(231, 30);
-            this.Name = "SeriesViewer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Name = "SeriesView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Series";
             this.ResumeLayout(false);
 

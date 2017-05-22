@@ -37,6 +37,7 @@ namespace Krakflix.Vistas
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoUser)).BeginInit();
             this.SuspendLayout();
+            this.PhotoUser.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // PhotoUser
             // 

@@ -29,6 +29,7 @@ namespace Krakflix.Modelo
         public Nullable<int> NumCap { get; set; }
         public int IdUser { get; set; }
         public string PhotoPath { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chapter> Chapters { get; set; }

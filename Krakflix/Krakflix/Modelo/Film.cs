@@ -23,6 +23,7 @@ namespace Krakflix.Modelo
         public int IdGenre { get; set; }
         public int IdUser { get; set; }
         public string PhotoPath { get; set; }
+        public string Description { get; set; }
     
         public virtual Genre Genre { get; set; }
         public virtual User User { get; set; }

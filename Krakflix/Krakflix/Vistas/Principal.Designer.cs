@@ -62,16 +62,17 @@ namespace Krakflix
             ((System.ComponentModel.ISupportInitialize)(this.imgUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
+            this.imgUser.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.lblWelcome.Location = new System.Drawing.Point(237, 13);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(70, 17);
+            this.lblWelcome.Size = new System.Drawing.Size(86, 21);
             this.lblWelcome.TabIndex = 1;
             this.lblWelcome.Text = "WELCOME";
             // 
@@ -79,7 +80,7 @@ namespace Krakflix
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Transparent;
             this.panelMenu.Controls.Add(this.tsMenu);
-            this.panelMenu.Location = new System.Drawing.Point(64, 218);
+            this.panelMenu.Location = new System.Drawing.Point(12, 268);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(99, 311);
             this.panelMenu.TabIndex = 2;
@@ -213,7 +214,7 @@ namespace Krakflix
             this.PlayerPeli.Location = new System.Drawing.Point(523, 372);
             this.PlayerPeli.Name = "PlayerPeli";
             this.PlayerPeli.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("PlayerPeli.OcxState")));
-            this.PlayerPeli.Size = new System.Drawing.Size(556, 247);
+            this.PlayerPeli.Size = new System.Drawing.Size(647, 279);
             this.PlayerPeli.TabIndex = 3;
             this.PlayerPeli.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.VideoPelisClick);
             this.PlayerPeli.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.PlayerPeli_MouseMoveEvent);
@@ -224,7 +225,7 @@ namespace Krakflix
             this.PlayerSerie.Location = new System.Drawing.Point(523, 53);
             this.PlayerSerie.Name = "PlayerSerie";
             this.PlayerSerie.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("PlayerSerie.OcxState")));
-            this.PlayerSerie.Size = new System.Drawing.Size(556, 247);
+            this.PlayerSerie.Size = new System.Drawing.Size(647, 279);
             this.PlayerSerie.TabIndex = 4;
             this.PlayerSerie.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.VideoSeriesClick);
             this.PlayerSerie.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.PlayerSerie_MouseMoveEvent);
@@ -232,9 +233,10 @@ namespace Krakflix
             // lblVideoPeli
             // 
             this.lblVideoPeli.AutoSize = true;
+            this.lblVideoPeli.BackColor = System.Drawing.Color.Black;
             this.lblVideoPeli.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideoPeli.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblVideoPeli.Location = new System.Drawing.Point(742, 487);
+            this.lblVideoPeli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblVideoPeli.Location = new System.Drawing.Point(795, 504);
             this.lblVideoPeli.Name = "lblVideoPeli";
             this.lblVideoPeli.Size = new System.Drawing.Size(105, 25);
             this.lblVideoPeli.TabIndex = 5;
@@ -246,7 +248,6 @@ namespace Krakflix
             // imgUser
             // 
             this.imgUser.BackColor = System.Drawing.Color.Transparent;
-            this.imgUser.BackgroundImage = global::Krakflix.Properties.Resources.defaultPhoto;
             this.imgUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgUser.Location = new System.Drawing.Point(0, 1);
             this.imgUser.Name = "imgUser";
@@ -257,22 +258,23 @@ namespace Krakflix
             // lblVideoSerie
             // 
             this.lblVideoSerie.AutoSize = true;
+            this.lblVideoSerie.BackColor = System.Drawing.Color.Black;
             this.lblVideoSerie.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideoSerie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblVideoSerie.Location = new System.Drawing.Point(752, 154);
+            this.lblVideoSerie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblVideoSerie.Location = new System.Drawing.Point(806, 183);
             this.lblVideoSerie.Name = "lblVideoSerie";
             this.lblVideoSerie.Size = new System.Drawing.Size(72, 25);
             this.lblVideoSerie.TabIndex = 6;
             this.lblVideoSerie.Text = "SERIES";
             this.lblVideoSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblVideoSerie.Click += new System.EventHandler(this.lblVideoSerie_Click);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            this.BackgroundImage = global::Krakflix.Properties.Resources.back2jpg;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.lblVideoSerie);
             this.Controls.Add(this.lblVideoPeli);
@@ -287,7 +289,6 @@ namespace Krakflix
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Krakflix";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MouseEnter += new System.EventHandler(this.Principal_MouseEnter);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();

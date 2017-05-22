@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Krakflix
 {
     public partial class Principal : Form
@@ -18,6 +19,9 @@ namespace Krakflix
         {
             InitializeComponent();
             _user = user;
+            mostrarUser(_user);
+            PlayerSerie.settings.mute = true;
+            PlayerPeli.settings.mute = true;
         }
         public Principal()
         {
@@ -39,6 +43,7 @@ namespace Krakflix
             controls2.play();
             lblVideoPeli.Visible = false;
             lblVideoSerie.Visible = false;
+            
         }
 
         private void PlayerSerie_MouseMoveEvent(object sender, AxWMPLib._WMPOCXEvents_MouseMoveEvent e)
@@ -50,19 +55,35 @@ namespace Krakflix
 
         private void VideoPelisClick(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            PeliculasView pelis = new PeliculasView();
-            //Close();
+            PeliculasView pelis = new PeliculasView(_user);
             pelis.Show();
         }
 
         private void lblVideoPelisClick(object sender, EventArgs e)
         {
-            PeliculasView pelis = new PeliculasView();
-            //Close();
+            PeliculasView pelis = new PeliculasView(_user);
             pelis.Show();
         }
 
         private void VideoSeriesClick(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
+        {
+            SeriesView series = new SeriesView();
+            series.Show();
+        }
+        private void mostrarUser(User user)
+        {
+            lblWelcome.Text = "WELCOME " + _user.UserName.ToUpper();
+
+            if (_user.photoPath != null)
+                imgUser.Image = Image.FromFile(_user.photoPath);
+            else
+                imgUser.Image = Image.FromFile(@"C:\Users\Borja\Source\Repos\Kraflix\Krakflix\Krakflix\Resources\defaultPhoto1.png");
+
+                
+
+        }
+
+        private void lblVideoSerie_Click(object sender, EventArgs e)
         {
             SeriesView series = new SeriesView();
             series.Show();
