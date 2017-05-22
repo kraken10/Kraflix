@@ -19,7 +19,7 @@ namespace Krakflix
         {
             InitializeComponent();
             _user = user;
-            //mostrarUser(_user);
+            mostrarUser(_user);
             PlayerSerie.settings.mute = true;
             PlayerPeli.settings.mute = true;
         }

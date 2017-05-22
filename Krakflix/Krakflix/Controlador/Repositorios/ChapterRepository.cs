@@ -21,10 +21,8 @@ namespace Krakflix.Controlador.Repositorios
 
         public IQueryable<Chapter> getById(IQueryable<Chapter> allChapters, string idSerie, int temp)
         {
-            var query = allChapters.Where(c => c.IdSerie == idSerie);
-            //var query = query.Where(c => c.IdSerie == idSerie).Where(c => c.temp == temp);
-
-            //return query;
+            var query = from c in allChapters.Where(c => c.IdSerie == idSerie && c.Temp == temp)
+                        select c;
             return query;
         }
         public IQueryable<Chapter> getChapterToPlay(IQueryable<Chapter> chapters, string idSerie, int tempSelected)

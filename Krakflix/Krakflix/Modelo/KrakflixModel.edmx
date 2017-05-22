@@ -11,8 +11,9 @@
           </Key>
           <Property Name="IdChapter" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdSerie" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Duration" Type="int" />
+          <Property Name="Temp" Type="int" />
           <Property Name="Path" Type="varchar(max)" />
+          <Property Name="NombreCap" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Film">
           <Key>
@@ -151,16 +152,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KrakflixDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Chapter">
-          <Key>
-            <PropertyRef Name="IdChapter" />
-          </Key>
-          <Property Name="IdChapter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IdSerie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Duration" Type="Int32" />
-          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Serie" Relationship="Self.FK_Chapter_Serie" FromRole="Chapter" ToRole="Serie" />
-        </EntityType>
         <EntityType Name="Film">
           <Key>
             <PropertyRef Name="IdFilm" />
@@ -199,11 +190,11 @@
           <Property Name="Rate" Type="Int32" />
           <Property Name="NumCap" Type="Int32" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Chapters" Relationship="Self.FK_Chapter_Serie" FromRole="Serie" ToRole="Chapter" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Serie_Genre" FromRole="Serie" ToRole="Genre" />
           <NavigationProperty Name="User" Relationship="Self.FK_Serie_User" FromRole="Serie" ToRole="User" />
           <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Chapters" Relationship="KrakflixDBModel.FK_Chapter_Serie" FromRole="Serie" ToRole="Chapter" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -216,18 +207,6 @@
           <NavigationProperty Name="Series" Relationship="Self.FK_Serie_User" FromRole="User" ToRole="Serie" />
           <Property Name="photoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK_Chapter_Serie">
-          <End Role="Serie" Type="Self.Serie" Multiplicity="1" />
-          <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Serie">
-              <PropertyRef Name="IdSerie" />
-            </Principal>
-            <Dependent Role="Chapter">
-              <PropertyRef Name="IdSerie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Film_Film">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Film" Type="Self.Film" Multiplicity="*" />
@@ -277,15 +256,10 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="KrakflixDBEntities3" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Chapters" EntityType="Self.Chapter" />
           <EntitySet Name="Films" EntityType="Self.Film" />
           <EntitySet Name="Genres" EntityType="Self.Genre" />
           <EntitySet Name="Series" EntityType="Self.Serie" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK_Chapter_Serie" Association="Self.FK_Chapter_Serie">
-            <End Role="Serie" EntitySet="Series" />
-            <End Role="Chapter" EntitySet="Chapters" />
-          </AssociationSet>
           <AssociationSet Name="FK_Film_Film" Association="Self.FK_Film_Film">
             <End Role="Genre" EntitySet="Genres" />
             <End Role="Film" EntitySet="Films" />
@@ -302,23 +276,41 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Serie" EntitySet="Series" />
           </AssociationSet>
+          <EntitySet Name="Chapters" EntityType="KrakflixDBModel.Chapter" />
+          <AssociationSet Name="FK_Chapter_Serie" Association="KrakflixDBModel.FK_Chapter_Serie">
+            <End Role="Serie" EntitySet="Series" />
+            <End Role="Chapter" EntitySet="Chapters" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="IdChapter" />
+          </Key>
+          <Property Name="IdChapter" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdSerie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Temp" Type="Int32" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Serie" Relationship="KrakflixDBModel.FK_Chapter_Serie" FromRole="Chapter" ToRole="Serie" />
+        </EntityType>
+        <Association Name="FK_Chapter_Serie">
+          <End Type="KrakflixDBModel.Serie" Role="Serie" Multiplicity="1" />
+          <End Type="KrakflixDBModel.Chapter" Role="Chapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serie">
+              <PropertyRef Name="IdSerie" />
+            </Principal>
+            <Dependent Role="Chapter">
+              <PropertyRef Name="IdSerie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KrakflixDBModelStoreContainer" CdmEntityContainer="KrakflixDBEntities3">
-          <EntitySetMapping Name="Chapters">
-            <EntityTypeMapping TypeName="KrakflixDBModel.Chapter">
-              <MappingFragment StoreEntitySet="Chapter">
-                <ScalarProperty Name="IdChapter" ColumnName="IdChapter" />
-                <ScalarProperty Name="IdSerie" ColumnName="IdSerie" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Films">
             <EntityTypeMapping TypeName="KrakflixDBModel.Film">
               <MappingFragment StoreEntitySet="Film">
@@ -366,6 +358,17 @@
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chapters">
+            <EntityTypeMapping TypeName="KrakflixDBModel.Chapter">
+              <MappingFragment StoreEntitySet="Chapter">
+                <ScalarProperty Name="NombreCap" ColumnName="NombreCap" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Temp" ColumnName="Temp" />
+                <ScalarProperty Name="IdSerie" ColumnName="IdSerie" />
+                <ScalarProperty Name="IdChapter" ColumnName="IdChapter" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

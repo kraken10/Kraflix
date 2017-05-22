@@ -43,11 +43,11 @@ namespace Krakflix.Vistas
             this.listBoxSeries = new System.Windows.Forms.ListBox();
             this.btnBuscarSerie = new System.Windows.Forms.Button();
             this.lblTituloSerieDescripcion = new System.Windows.Forms.Label();
-            this.lblDescripcionSerie = new System.Windows.Forms.Label();
             this.lblcap = new System.Windows.Forms.Label();
             this.cmbCaps = new System.Windows.Forms.ComboBox();
             this.lblTemp = new System.Windows.Forms.Label();
             this.cmbTemp = new System.Windows.Forms.ComboBox();
+            this.lblDescripcionSerie = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgSerie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,17 +174,6 @@ namespace Krakflix.Vistas
             this.lblTituloSerieDescripcion.TabIndex = 13;
             this.lblTituloSerieDescripcion.Text = "Descripción";
             // 
-            // lblDescripcionSerie
-            // 
-            this.lblDescripcionSerie.AutoSize = true;
-            this.lblDescripcionSerie.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescripcionSerie.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblDescripcionSerie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblDescripcionSerie.Location = new System.Drawing.Point(507, 352);
-            this.lblDescripcionSerie.Name = "lblDescripcionSerie";
-            this.lblDescripcionSerie.Size = new System.Drawing.Size(0, 21);
-            this.lblDescripcionSerie.TabIndex = 14;
-            // 
             // lblcap
             // 
             this.lblcap.AutoSize = true;
@@ -202,6 +191,7 @@ namespace Krakflix.Vistas
             this.cmbCaps.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCaps.FormattingEnabled = true;
             this.cmbCaps.Location = new System.Drawing.Point(1121, 278);
+            this.cmbCaps.MaxDropDownItems = 10;
             this.cmbCaps.Name = "cmbCaps";
             this.cmbCaps.Size = new System.Drawing.Size(209, 28);
             this.cmbCaps.TabIndex = 16;
@@ -231,6 +221,18 @@ namespace Krakflix.Vistas
             this.cmbTemp.TabStop = false;
             this.cmbTemp.Text = "Elije";
             this.cmbTemp.SelectedIndexChanged += new System.EventHandler(this.cmbTemp_SelectedIndexChanged);
+            this.cmbTemp.SelectionChangeCommitted += new System.EventHandler(this.cmbTemp_SelectionChangeCommitted);
+            // 
+            // lblDescripcionSerie
+            // 
+            this.lblDescripcionSerie.AutoSize = true;
+            this.lblDescripcionSerie.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescripcionSerie.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblDescripcionSerie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblDescripcionSerie.Location = new System.Drawing.Point(507, 352);
+            this.lblDescripcionSerie.Name = "lblDescripcionSerie";
+            this.lblDescripcionSerie.Size = new System.Drawing.Size(0, 21);
+            this.lblDescripcionSerie.TabIndex = 14;
             // 
             // SeriesView
             // 
@@ -280,10 +282,10 @@ namespace Krakflix.Vistas
         private System.Windows.Forms.ListBox listBoxSeries;
         private System.Windows.Forms.Button btnBuscarSerie;
         private System.Windows.Forms.Label lblTituloSerieDescripcion;
-        private System.Windows.Forms.Label lblDescripcionSerie;
         private Label lblcap;
         private ComboBox cmbCaps;
         private Label lblTemp;
         private ComboBox cmbTemp;
+        private Label lblDescripcionSerie;
     }
 }

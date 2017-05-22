@@ -84,16 +84,16 @@ namespace Krakflix.Vistas
             {
                 cmbTemp.Items.Add(i+1);
             }
-            serie.IdSerie = serieSelected;
+            serieSelected = serie.IdSerie;
         }
         private void cargarCap(string idSerie, int temp)
         {
             var allChapters = chapterRepo.getAll();
-            List<Chapter> chapterbyId = chapterRepo.getById(allChapters, idSerie, temp).ToList();
+            List<Chapter> chapterbyId = chapterRepo.getById(allChapters, serieSelected, temp).ToList();
             cmbCaps.Items.Clear();
             foreach (var chapter in chapterbyId)
             {
-                cmbCaps.Items.Add(chapter);//aqui seria chapter.Name pero hay que añadirlo a la base de datos
+                cmbCaps.Items.Add(chapter.NombreCap);
             }
         }
 
@@ -126,6 +126,13 @@ namespace Krakflix.Vistas
         }
 
         private void cmbTemp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tempSelected = (int)cmbTemp.SelectedItem;
+            cargarCap(serieSelected, tempSelected);
+            
+        }
+
+        private void cmbTemp_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int tempSelected = (int)cmbTemp.SelectedItem;
             cargarCap(serieSelected, tempSelected);

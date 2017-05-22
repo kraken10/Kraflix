@@ -16,8 +16,9 @@ namespace Krakflix.Modelo
     {
         public string IdChapter { get; set; }
         public string IdSerie { get; set; }
-        public Nullable<int> Duration { get; set; }
+        public Nullable<int> Temp { get; set; }
         public string Path { get; set; }
+        public string NombreCap { get; set; }
     
         public virtual Serie Serie { get; set; }
     }

@@ -25,10 +25,10 @@ namespace Krakflix.Modelo
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Chapter> Chapters { get; set; }
         public virtual DbSet<Film> Films { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Serie> Series { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Chapter> Chapters { get; set; }
     }
 }
