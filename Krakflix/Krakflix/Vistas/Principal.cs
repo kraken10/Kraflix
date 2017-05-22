@@ -19,7 +19,7 @@ namespace Krakflix
         {
             InitializeComponent();
             _user = user;
-            mostrarUser(_user);
+            //mostrarUser(_user);
             PlayerSerie.settings.mute = true;
             PlayerPeli.settings.mute = true;
         }
@@ -67,7 +67,7 @@ namespace Krakflix
 
         private void VideoSeriesClick(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            SeriesView series = new SeriesView();
+            SeriesView series = new SeriesView(_user);
             series.Show();
         }
         private void mostrarUser(User user)
@@ -78,15 +78,24 @@ namespace Krakflix
                 imgUser.Image = Image.FromFile(_user.photoPath);
             else
                 imgUser.Image = Image.FromFile(@"C:\Users\Borja\Source\Repos\Kraflix\Krakflix\Krakflix\Resources\defaultPhoto1.png");
-
-                
-
         }
 
         private void lblVideoSerie_Click(object sender, EventArgs e)
         {
-            SeriesView series = new SeriesView();
+            SeriesView series = new SeriesView(_user);
             series.Show();
+        }
+
+        private void lblAñadirPeli_Click(object sender, EventArgs e)
+        {
+            AddFilm addfilm = new AddFilm(_user);
+            addfilm.Show();
+        }
+
+        private void lblModificarPeli_Click(object sender, EventArgs e)
+        {
+            ModFilm modifyFilm = new ModFilm(_user);
+            modifyFilm.Show();
         }
     }
 }

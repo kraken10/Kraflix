@@ -55,24 +55,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Interfaces\IChapterRepository.cs" />
     <Compile Include="Controlador\Interfaces\IFilmRepository.cs" />
+    <Compile Include="Controlador\Interfaces\ISerieRepository.cs" />
     <Compile Include="Controlador\Login\LoginController.cs" />
     <Compile Include="Controlador\Registrer\RegisterController.cs" />
+    <Compile Include="Controlador\Repositorios\ChapterRepository.cs" />
     <Compile Include="Controlador\Repositorios\FilmRepository.cs" />
     <Compile Include="Controlador\Repositorios\GenreRepository.cs" />
     <Compile Include="Controlador\Interfaces\IGenreRepository.cs" />
     <Compile Include="Controlador\Interfaces\IUserRepository.cs" />
+    <Compile Include="Controlador\Repositorios\SerieRepository.cs" />
     <Compile Include="Controlador\Repositorios\UserRepository.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\AddFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\AddFilm.Designer.cs">
+      <DependentUpon>AddFilm.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login.cs">
       <SubType>Form</SubType>
@@ -110,6 +114,18 @@
     <Compile Include="Modelo\User.cs">
       <DependentUpon>KrakflixModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ModFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ModFilm.Designer.cs">
+      <DependentUpon>ModFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\SeriesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\SeriesView.Designer.cs">
+      <DependentUpon>SeriesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\PeliculasView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,14 +146,14 @@
     <Compile Include="Vistas\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\SeriesView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\SeriesView.Designer.cs">
-      <DependentUpon>SeriesView.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Vistas\AddFilm.resx">
+      <DependentUpon>AddFilm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\SeriesView.resx">
+      <DependentUpon>SeriesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\PeliculasView.resx">
       <DependentUpon>PeliculasView.cs</DependentUpon>
@@ -152,9 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\SeriesView.resx">
-      <DependentUpon>SeriesView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="Modelo\KrakflixModel.edmx">

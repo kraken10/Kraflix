@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Krakflix.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Krakflix
+namespace Krakflix.Vistas
 {
-    public partial class Form1 : Form
+    public partial class ModFilm : Form
     {
-        public Form1()
+        private User _user;
+        public ModFilm(User user)
         {
             InitializeComponent();
+            _user = user;
         }
     }
 }

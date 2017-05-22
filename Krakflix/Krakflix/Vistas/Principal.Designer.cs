@@ -62,7 +62,6 @@ namespace Krakflix
             ((System.ComponentModel.ISupportInitialize)(this.imgUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
-            this.imgUser.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // lblWelcome
             // 
@@ -129,6 +128,7 @@ namespace Krakflix
             this.lblAñadirPeli.Name = "lblAñadirPeli";
             this.lblAñadirPeli.Size = new System.Drawing.Size(96, 20);
             this.lblAñadirPeli.Text = "-Añadir";
+            this.lblAñadirPeli.Click += new System.EventHandler(this.lblAñadirPeli_Click);
             // 
             // lblModificarPeli
             // 
@@ -136,6 +136,7 @@ namespace Krakflix
             this.lblModificarPeli.Name = "lblModificarPeli";
             this.lblModificarPeli.Size = new System.Drawing.Size(96, 20);
             this.lblModificarPeli.Text = "-Modificar";
+            this.lblModificarPeli.Click += new System.EventHandler(this.lblModificarPeli_Click);
             // 
             // lblEliminarPeli
             // 
@@ -205,7 +206,7 @@ namespace Krakflix
             // 
             this.lblFoto.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblFoto.Name = "lblFoto";
-            this.lblFoto.Size = new System.Drawing.Size(96, 20);
+            this.lblFoto.Size = new System.Drawing.Size(45, 20);
             this.lblFoto.Text = "-Foto";
             // 
             // PlayerPeli
@@ -252,6 +253,7 @@ namespace Krakflix
             this.imgUser.Location = new System.Drawing.Point(0, 1);
             this.imgUser.Name = "imgUser";
             this.imgUser.Size = new System.Drawing.Size(230, 207);
+            this.imgUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgUser.TabIndex = 0;
             this.imgUser.TabStop = false;
             // 

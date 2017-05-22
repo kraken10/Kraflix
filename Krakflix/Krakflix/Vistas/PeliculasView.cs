@@ -85,7 +85,10 @@ namespace Krakflix.Vistas
         {
             var allFilms = filmsRepo.GetAll();
             Film filmtoPlay = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
-            Process.Start("wmplayer", filmtoPlay.Path);
+            if (filmtoPlay != null)
+                Process.Start("wmplayer", filmtoPlay.Path);
+            else
+                MessageBox.Show("No se ha seleccionado ninguna película","Error");
         }
         public int getGenre(string genre)
         {
