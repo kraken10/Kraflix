@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Film\FilmController.cs" />
     <Compile Include="Controlador\Interfaces\IChapterRepository.cs" />
     <Compile Include="Controlador\Interfaces\IFilmRepository.cs" />
     <Compile Include="Controlador\Interfaces\ISerieRepository.cs" />

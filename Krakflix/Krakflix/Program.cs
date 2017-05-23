@@ -17,7 +17,8 @@ namespace Krakflix
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            User user = new User();
+            Application.Run(new AddFilm(user));
         }
     }
 }

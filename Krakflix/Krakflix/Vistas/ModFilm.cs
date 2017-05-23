@@ -12,7 +12,7 @@ namespace Krakflix.Vistas
 {
     public partial class ModFilm : Form
     {
-        private User _user;
+        private User _user = new User();
         public ModFilm(User user)
         {
             InitializeComponent();

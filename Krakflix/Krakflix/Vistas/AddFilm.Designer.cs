@@ -44,6 +44,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnRuta = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblCorrecto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,6 +217,41 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnRuta
+            // 
+            this.btnRuta.Location = new System.Drawing.Point(145, 409);
+            this.btnRuta.Name = "btnRuta";
+            this.btnRuta.Size = new System.Drawing.Size(52, 23);
+            this.btnRuta.TabIndex = 20;
+            this.btnRuta.Text = "Elegir";
+            this.btnRuta.UseVisualStyleBackColor = true;
+            this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.label2.Location = new System.Drawing.Point(76, 409);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 21);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Ruta";
+            // 
+            // lblCorrecto
+            // 
+            this.lblCorrecto.AutoSize = true;
+            this.lblCorrecto.BackColor = System.Drawing.Color.Transparent;
+            this.lblCorrecto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblCorrecto.Location = new System.Drawing.Point(213, 408);
+            this.lblCorrecto.Name = "lblCorrecto";
+            this.lblCorrecto.Size = new System.Drawing.Size(70, 21);
+            this.lblCorrecto.TabIndex = 22;
+            this.lblCorrecto.Text = "Correcto";
+            this.lblCorrecto.Visible = false;
+            // 
             // AddFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +259,9 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(916, 530);
+            this.Controls.Add(this.lblCorrecto);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnRuta);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -263,5 +304,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnRuta;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCorrecto;
     }
 }
