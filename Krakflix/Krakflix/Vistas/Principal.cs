@@ -1,4 +1,5 @@
-﻿using Krakflix.Modelo;
+﻿using Krakflix.Controlador;
+using Krakflix.Modelo;
 using Krakflix.Vistas;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Krakflix
     public partial class Principal : Form
     {
         private User _user;
+        private UserController userctrl;
         public Principal(User user)
         {
             InitializeComponent();
@@ -43,7 +45,7 @@ namespace Krakflix
             controls2.play();
             lblVideoPeli.Visible = false;
             lblVideoSerie.Visible = false;
-            
+
         }
 
         private void PlayerSerie_MouseMoveEvent(object sender, AxWMPLib._WMPOCXEvents_MouseMoveEvent e)
@@ -96,6 +98,36 @@ namespace Krakflix
         {
             ModFilm modifyFilm = new ModFilm(_user);
             modifyFilm.Show();
+        }
+
+        private void lblEliminarPeli_Click(object sender, EventArgs e)
+        {
+            RemoveFilm remFilm = new RemoveFilm(_user);
+            remFilm.Show();
+        }
+
+        private void lblPass_Click(object sender, EventArgs e)
+        {
+            ModUser userMod = new ModUser(_user);
+            userMod.Show();
+        }
+
+        private void lblFoto_Click(object sender, EventArgs e)
+        {
+            userctrl = new UserController();
+            string photo = "";
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                photo = dialog.FileName;
+                if (userctrl.cambiarFoto(_user))
+                {
+                    MessageBox.Show("Foto cambiada con éxito", "Éxito");
+                    imgUser.Image = Image.FromFile(photo);
+                }
+                else
+                    MessageBox.Show("Error al actualizar la foto", "Error");
+            }
         }
     }
 }

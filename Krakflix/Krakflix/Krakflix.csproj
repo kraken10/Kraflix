@@ -68,6 +68,7 @@
     <Compile Include="Controlador\Interfaces\IUserRepository.cs" />
     <Compile Include="Controlador\Repositorios\SerieRepository.cs" />
     <Compile Include="Controlador\Repositorios\UserRepository.cs" />
+    <Compile Include="Controlador\User\UserController.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,6 +122,12 @@
     <Compile Include="Vistas\ModFilm.Designer.cs">
       <DependentUpon>ModFilm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ModUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ModUser.Designer.cs">
+      <DependentUpon>ModUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\RemoveFilm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ModFilm.resx">
       <DependentUpon>ModFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ModUser.resx">
+      <DependentUpon>ModUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\RemoveFilm.resx">
       <DependentUpon>RemoveFilm.cs</DependentUpon>

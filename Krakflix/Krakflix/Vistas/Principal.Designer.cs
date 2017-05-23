@@ -144,6 +144,7 @@ namespace Krakflix
             this.lblEliminarPeli.Name = "lblEliminarPeli";
             this.lblEliminarPeli.Size = new System.Drawing.Size(96, 20);
             this.lblEliminarPeli.Text = "-Eliminar";
+            this.lblEliminarPeli.Click += new System.EventHandler(this.lblEliminarPeli_Click);
             // 
             // lblEspacio
             // 
@@ -201,6 +202,7 @@ namespace Krakflix
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(96, 20);
             this.lblPass.Text = "-Contraseña";
+            this.lblPass.Click += new System.EventHandler(this.lblPass_Click);
             // 
             // lblFoto
             // 
@@ -208,6 +210,7 @@ namespace Krakflix
             this.lblFoto.Name = "lblFoto";
             this.lblFoto.Size = new System.Drawing.Size(45, 20);
             this.lblFoto.Text = "-Foto";
+            this.lblFoto.Click += new System.EventHandler(this.lblFoto_Click);
             // 
             // PlayerPeli
             // 

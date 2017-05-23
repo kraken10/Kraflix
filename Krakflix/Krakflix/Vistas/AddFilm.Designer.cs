@@ -58,6 +58,7 @@
             this.imgPeli.Size = new System.Drawing.Size(187, 218);
             this.imgPeli.TabIndex = 0;
             this.imgPeli.TabStop = false;
+            this.imgPeli.Click += new System.EventHandler(this.imgPeli_Click);
             // 
             // lblTitulo
             // 
