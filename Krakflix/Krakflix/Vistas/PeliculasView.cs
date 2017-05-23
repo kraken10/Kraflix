@@ -24,7 +24,7 @@ namespace Krakflix.Vistas
         {
             InitializeComponent();
             _user = user;
-            CargarGenres();
+            //CargarGenres();
         }
         public void CargarGenres()
         {
@@ -37,7 +37,7 @@ namespace Krakflix.Vistas
             }
         }
 
-        public void cargarPeliculas(User user)
+        public void cargarPeliculas()
         {
             filmsRepo = new FilmRepository();
             string genre = cmbGenres.SelectedItem != null ? cmbGenres.SelectedItem.ToString() : string.Empty;
@@ -50,21 +50,21 @@ namespace Krakflix.Vistas
             {
                 listBoxPelis.Items.Add(film.Title);
             }
-
         }
 
         private void btnBuscarClick(object sender, EventArgs e)
         {
-            cargarPeliculas(_user);
+            cargarPeliculas();
         }
 
-        private void listBoxPelis_DoubleClick(object sender, EventArgs e)
+        private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
             filmSelected = listBoxPelis.SelectedItem.ToString();
             var allFilms = filmsRepo.GetAll();
             Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
             showFilm(filmtoShow);
         }
+
         private void showFilm(Film film)
         {
             lblTitulo.Text = "";
@@ -107,5 +107,6 @@ namespace Krakflix.Vistas
             }
             return -1;
         }
+       
     }
 }

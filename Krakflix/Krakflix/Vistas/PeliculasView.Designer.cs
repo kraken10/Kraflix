@@ -145,7 +145,7 @@ namespace Krakflix.Vistas
             this.listBoxPelis.Name = "listBoxPelis";
             this.listBoxPelis.Size = new System.Drawing.Size(253, 340);
             this.listBoxPelis.TabIndex = 11;
-            this.listBoxPelis.DoubleClick += new System.EventHandler(this.listBoxPelis_DoubleClick);
+            this.listBoxPelis.SelectedIndexChanged += new System.EventHandler(this.listBoxPelis_SelectedIndexChanged);
             // 
             // btnBuscar
             // 

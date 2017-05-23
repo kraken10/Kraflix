@@ -121,6 +121,12 @@
     <Compile Include="Vistas\ModFilm.Designer.cs">
       <DependentUpon>ModFilm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\RemoveFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\RemoveFilm.Designer.cs">
+      <DependentUpon>RemoveFilm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\SeriesView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ModFilm.resx">
+      <DependentUpon>ModFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\RemoveFilm.resx">
+      <DependentUpon>RemoveFilm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\SeriesView.resx">
       <DependentUpon>SeriesView.cs</DependentUpon>

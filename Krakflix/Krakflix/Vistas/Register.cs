@@ -56,7 +56,7 @@ namespace Krakflix.Vistas
                 }
                 else
                 {
-                    MessageBox.Show("Campos incorrectos", "Error");
+                    MessageBox.Show("Las contraseñas no coinciden", "Error");
                 }
 
             }

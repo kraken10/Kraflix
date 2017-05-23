@@ -16,6 +16,7 @@ namespace Krakflix.Vistas
         private string photoPath = "";
         private string filmPath = "";
         private User _user = new User();
+        private GenreRepository genres = new GenreRepository();
         private FilmController filmcontroller;
         private bool photo = false;
         private bool pathSelected = false;
@@ -24,6 +25,17 @@ namespace Krakflix.Vistas
         {
             InitializeComponent();
             _user = user;
+            cargarGenres();
+        }
+        private void cargarGenres()
+        {
+            genres = new GenreRepository();
+            var genresList = genres.GetAll().ToList();
+
+            foreach (var name in genresList)
+            {
+                cmbGenres.Items.Add(name.Description);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

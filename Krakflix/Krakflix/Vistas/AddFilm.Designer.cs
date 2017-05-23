@@ -278,6 +278,7 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.imgPeli);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddFilm";
             this.Text = "Añadir Pelicula";
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).EndInit();
