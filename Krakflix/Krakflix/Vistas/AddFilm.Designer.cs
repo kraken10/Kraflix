@@ -42,7 +42,7 @@
             this.lblRate = new System.Windows.Forms.Label();
             this.lblRate2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRuta = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -198,14 +198,14 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Descripción";
             // 
-            // textBox1
+            // txtDescription
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(366, 338);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(389, 162);
-            this.textBox1.TabIndex = 18;
+            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(366, 338);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(389, 162);
+            this.txtDescription.TabIndex = 18;
             // 
             // btnAdd
             // 
@@ -263,7 +263,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRuta);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblRate2);
             this.Controls.Add(this.txtRate);
@@ -302,7 +302,7 @@
         private System.Windows.Forms.Label lblRate;
         private System.Windows.Forms.Label lblRate2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRuta;
         private System.Windows.Forms.Label label2;

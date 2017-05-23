@@ -30,7 +30,6 @@ namespace Krakflix.Vistas
         {
             try
             {
-
                 filmcontroller = new FilmController();
                 film = new Film();
                 film.Title = txtTitle.Text.Trim();
@@ -38,7 +37,7 @@ namespace Krakflix.Vistas
                 film.IdGenre = cmbGenres.SelectedItem == null ? -1 : getGenre(cmbGenres.SelectedItem.ToString());
                 film.Year = string.IsNullOrEmpty(txtYear.Text.Trim()) ? 0 : int.Parse(txtYear.Text);
                 film.Rate = string.IsNullOrEmpty(txtRate.Text.Trim()) ? 0 : int.Parse(txtRate.Text);
-                //film.Description =/* txtDescription.Text.Trim();*/
+                film.Description = txtDescription.Text.Trim();
                 film.PhotoPath = photo == true ? photoPath.ToString() : string.Empty;
                 film.Path = filmPath;
                 if (string.IsNullOrEmpty(film.Title) || film.Duration == 0 || film.Year == 0 || film.Rate == 0 || film.IdGenre == -1
