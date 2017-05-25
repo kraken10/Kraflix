@@ -60,6 +60,7 @@
             this.imgPeli.Location = new System.Drawing.Point(717, 12);
             this.imgPeli.Name = "imgPeli";
             this.imgPeli.Size = new System.Drawing.Size(187, 205);
+            this.imgPeli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgPeli.TabIndex = 1;
             this.imgPeli.TabStop = false;
             this.imgPeli.Click += new System.EventHandler(this.imgPeli_Click);
@@ -115,6 +116,7 @@
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // listBoxPelis
             // 
@@ -125,7 +127,7 @@
             this.listBoxPelis.Name = "listBoxPelis";
             this.listBoxPelis.Size = new System.Drawing.Size(253, 256);
             this.listBoxPelis.TabIndex = 15;
-            this.listBoxPelis.DoubleClick += new System.EventHandler(this.listBoxPelis_DoubleClick);
+            this.listBoxPelis.SelectedIndexChanged += new System.EventHandler(this.listBoxPelis_SelectedIndexChanged);
             // 
             // lblDuration
             // 

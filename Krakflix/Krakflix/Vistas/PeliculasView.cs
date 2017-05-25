@@ -24,7 +24,7 @@ namespace Krakflix.Vistas
         {
             InitializeComponent();
             _user = user;
-            //CargarGenres();
+            CargarGenres();
         }
         public void CargarGenres()
         {

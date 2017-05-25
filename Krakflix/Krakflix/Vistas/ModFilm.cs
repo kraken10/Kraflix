@@ -27,7 +27,7 @@ namespace Krakflix.Vistas
         {
             InitializeComponent();
             _user = user;
-            //cargarGenres();
+            cargarGenres();
         }
         private void cargarGenres()
         {
@@ -37,6 +37,16 @@ namespace Krakflix.Vistas
             foreach (var name in genresList)
             {
                 cmbGenres.Items.Add(name.Description);
+            }
+        }
+        private void cargarGenresMod()
+        {
+            genres = new GenreRepository();
+            var genresList = genres.GetAll().ToList();
+
+            foreach (var name in genresList)
+            {
+               cmbGenreMod.Items.Add(name.Description);
             }
         }
         private void imgPeli_Click(object sender, EventArgs e)
@@ -95,7 +105,7 @@ namespace Krakflix.Vistas
                 film.PhotoPath = photo == true ? photoPath.ToString() : string.Empty;
                 film.Path = filmPath;
                 if (string.IsNullOrEmpty(film.Title) || film.Duration == 0 || film.Year == 0 || film.Rate == 0 || film.IdGenre == -1
-                    || string.IsNullOrEmpty(film.Description) || pathSelected == false)
+                    || string.IsNullOrEmpty(film.Description))
                 {
                     MessageBox.Show("Faltan campos por rellenar", "Error");
                 }
@@ -117,19 +127,12 @@ namespace Krakflix.Vistas
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception q)
             {
-                MessageBox.Show("Campos Rellenados incorrectamente", "Error");
+                MessageBox.Show("Campos Rellenados incorrectamente" + q.Message, "Error");
             }
         }
-
-        private void listBoxPelis_DoubleClick(object sender, EventArgs e)
-        {
-            string filmListBoxSelected = listBoxPelis.SelectedItem.ToString();
-            var allFilms = filmsRepo.GetAll();
-            Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
-            showFilm(filmtoShow);
-        }
+        
         private void showFilm(Film film)
         {
             txtTitle.Text = "";
@@ -163,6 +166,34 @@ namespace Krakflix.Vistas
                     return "Ciencia Ficción";
             }
             return "No asignado";
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            cargarPeliculas();
+            cargarGenresMod();
+        }
+        public void cargarPeliculas()
+        {
+            filmsRepo = new FilmRepository();
+            string genre = cmbGenres.SelectedItem != null ? cmbGenres.SelectedItem.ToString() : string.Empty;
+            int genreInt = getGenre(genre);
+            var allFilms = filmsRepo.GetAll();
+            var filmsById = filmsRepo.GetByUser(allFilms, genreInt, _user).ToList();
+
+            listBoxPelis.Items.Clear();
+            foreach (var film in filmsById)
+            {
+                listBoxPelis.Items.Add(film.Title);
+            }
+        }
+
+        private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filmListBoxSelected = listBoxPelis.SelectedItem.ToString();
+            var allFilms = filmsRepo.GetAll();
+            Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
+            showFilm(filmtoShow);
         }
     }
 }
