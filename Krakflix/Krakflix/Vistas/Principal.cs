@@ -75,11 +75,15 @@ namespace Krakflix
         private void mostrarUser(User user)
         {
             lblWelcome.Text = "WELCOME " + _user.UserName.ToUpper();
-
-            if (_user.photoPath != null)
+            try
+            {
                 imgUser.Image = Image.FromFile(_user.photoPath);
-            else
+            }
+            catch (Exception)
+            {
                 imgUser.Image = Image.FromFile(@"C:\Users\Borja\Source\Repos\Kraflix\Krakflix\Krakflix\Resources\defaultPhoto1.png");
+            }
+            
         }
 
         private void lblVideoSerie_Click(object sender, EventArgs e)
@@ -128,6 +132,23 @@ namespace Krakflix
                 else
                     MessageBox.Show("Error al actualizar la foto", "Error");
             }
+        }
+
+        private void lblAñadirSerie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblModificarSerie_Click(object sender, EventArgs e)
+        {
+            ModSerie modSerie = new ModSerie(_user);
+            modSerie.Show();
+        }
+
+        private void lblEliminarSerie_Click(object sender, EventArgs e)
+        {
+            RemoveSerie remSerie = new RemoveSerie(_user);
+            remSerie.Show();
         }
     }
 }

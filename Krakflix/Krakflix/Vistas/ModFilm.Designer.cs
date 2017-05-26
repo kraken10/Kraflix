@@ -268,6 +268,7 @@
             this.btnRuta.Size = new System.Drawing.Size(52, 23);
             this.btnRuta.TabIndex = 26;
             this.btnRuta.Text = "Elegir";
+            this.btnRuta.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
@@ -334,6 +335,7 @@
             this.Controls.Add(this.imgPeli);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModFilm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar película";
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).EndInit();
             this.ResumeLayout(false);

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblCorrecto = new System.Windows.Forms.Label();
-            this.btnRuta = new System.Windows.Forms.Button();
             this.lblRate2 = new System.Windows.Forms.Label();
             this.txtRate = new System.Windows.Forms.TextBox();
             this.txtYear = new System.Windows.Forms.TextBox();
@@ -43,7 +41,6 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.imgSerie = new System.Windows.Forms.PictureBox();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.lblRuta = new System.Windows.Forms.Label();
             this.lblRate = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
             this.lblGenreMod = new System.Windows.Forms.Label();
@@ -62,28 +59,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(389, 162);
             this.txtDescription.TabIndex = 45;
-            // 
-            // lblCorrecto
-            // 
-            this.lblCorrecto.AutoSize = true;
-            this.lblCorrecto.BackColor = System.Drawing.Color.Transparent;
-            this.lblCorrecto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorrecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblCorrecto.Location = new System.Drawing.Point(576, 231);
-            this.lblCorrecto.Name = "lblCorrecto";
-            this.lblCorrecto.Size = new System.Drawing.Size(70, 21);
-            this.lblCorrecto.TabIndex = 44;
-            this.lblCorrecto.Text = "Correcto";
-            this.lblCorrecto.Visible = false;
-            // 
-            // btnRuta
-            // 
-            this.btnRuta.Location = new System.Drawing.Point(518, 232);
-            this.btnRuta.Name = "btnRuta";
-            this.btnRuta.Size = new System.Drawing.Size(52, 23);
-            this.btnRuta.TabIndex = 43;
-            this.btnRuta.Text = "Elegir";
-            this.btnRuta.UseVisualStyleBackColor = true;
             // 
             // lblRate2
             // 
@@ -193,6 +168,7 @@
             this.imgSerie.TabIndex = 31;
             this.imgSerie.TabStop = false;
             this.imgSerie.Click += new System.EventHandler(this.imgPeli_Click);
+            this.imgSerie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // lblDescription
             // 
@@ -205,18 +181,6 @@
             this.lblDescription.Size = new System.Drawing.Size(91, 21);
             this.lblDescription.TabIndex = 52;
             this.lblDescription.Text = "Descripción";
-            // 
-            // lblRuta
-            // 
-            this.lblRuta.AutoSize = true;
-            this.lblRuta.BackColor = System.Drawing.Color.Transparent;
-            this.lblRuta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRuta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblRuta.Location = new System.Drawing.Point(462, 231);
-            this.lblRuta.Name = "lblRuta";
-            this.lblRuta.Size = new System.Drawing.Size(42, 21);
-            this.lblRuta.TabIndex = 51;
-            this.lblRuta.Text = "Ruta";
             // 
             // lblRate
             // 
@@ -286,10 +250,11 @@
             this.btnModify.TabIndex = 53;
             this.btnModify.Text = "Modificar";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnCapitulos
             // 
-            this.btnCapitulos.Location = new System.Drawing.Point(774, 232);
+            this.btnCapitulos.Location = new System.Drawing.Point(519, 237);
             this.btnCapitulos.Name = "btnCapitulos";
             this.btnCapitulos.Size = new System.Drawing.Size(75, 23);
             this.btnCapitulos.TabIndex = 54;
@@ -307,15 +272,12 @@
             this.Controls.Add(this.btnCapitulos);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.lblRuta);
             this.Controls.Add(this.lblRate);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblGenreMod);
             this.Controls.Add(this.lblTemp);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.lblCorrecto);
-            this.Controls.Add(this.btnRuta);
             this.Controls.Add(this.lblRate2);
             this.Controls.Add(this.txtRate);
             this.Controls.Add(this.txtYear);
@@ -339,8 +301,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblCorrecto;
-        private System.Windows.Forms.Button btnRuta;
         private System.Windows.Forms.Label lblRate2;
         private System.Windows.Forms.TextBox txtRate;
         private System.Windows.Forms.TextBox txtYear;
@@ -353,7 +313,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.PictureBox imgSerie;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblRuta;
         private System.Windows.Forms.Label lblRate;
         private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.Label lblGenreMod;

@@ -1,9 +1,9 @@
 ﻿using Krakflix.Controlador.Interfaces;
+using Krakflix.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Krakflix.Modelo;
 
 namespace Krakflix.Controlador.Repositorios
 {
@@ -19,13 +19,19 @@ namespace Krakflix.Controlador.Repositorios
             return query;
            
         }
-        public IQueryable<Serie> GetBytitle(IQueryable<Serie> series, string serieSelected)
+        public IQueryable<Serie> GetById(IQueryable<Serie> series, string serieSelected)
+        {
+            var query = series.Where(x => x.IdSerie == serieSelected);
+
+            return query;
+        }
+        
+        public IQueryable<Serie>GetBytitle(IQueryable<Serie> series, string serieSelected)
         {
             var query = series.Where(x => x.Title == serieSelected);
 
             return query;
         }
-
         public IQueryable<Serie> GetByUser(IQueryable<Serie> series, int genre, User user)
         {
             var query = series.Where(x => x.IdUser == user.IdUser);
@@ -35,5 +41,7 @@ namespace Krakflix.Controlador.Repositorios
 
             return query;
         }
+        
+
     }
 }

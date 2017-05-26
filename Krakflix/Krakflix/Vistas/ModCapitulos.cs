@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Krakflix.Controlador;
+using Krakflix.Controlador.Repositorios;
+using Krakflix.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,13 +14,20 @@ namespace Krakflix.Vistas
 {
     public partial class ModCapitulos : Form
     {
-        private string _serieTitle = "";
-        public ModCapitulos(string serieTitle)
+        private Serie _serie;
+        private ChapterController chapCtr = new ChapterController();
+        private ChapterRepository chapRepo = new ChapterRepository();
+        public ModCapitulos(Serie serie)
         {
             InitializeComponent();
-            serieTitle = _serieTitle;
+            serie = _serie;
         }
-
+        private void CargaTemp(string _serieTitle)
+        {
+            var allChapters = chapRepo.getAll();
+            var Caps = chapRepo.getTemps(allChapters, _serie).ToList();
+            
+        }
         private void btnModificar_Click(object sender, EventArgs e)
         {
 

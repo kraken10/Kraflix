@@ -91,6 +91,7 @@
             this.Controls.Add(this.cmbGenres);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RemoveFilm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RemoveFilm";
             this.ResumeLayout(false);
             this.PerformLayout();

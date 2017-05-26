@@ -1,6 +1,7 @@
 ﻿using Krakflix.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 
@@ -29,12 +30,15 @@ namespace Krakflix.Controlador
             }
 
         }
-        public bool modificarPeli(Film film)
+        public bool modificarPeli(Film filmToedit)
         {
-            var filmToedit = krakflixContext.Films.SingleOrDefault(f => f.IdFilm == film.IdFilm);
-            if (filmToedit != null)
+            krakflixContext = new KrakflixDBEntities3();
+            var filmFinal= krakflixContext.Films.SingleOrDefault(f => f.IdFilm == filmToedit.IdFilm);
+
+            if (filmFinal != null)
             {
-                filmToedit = film;
+                filmFinal = filmToedit;
+                krakflixContext.Films.AddOrUpdate(filmFinal);
                 krakflixContext.SaveChanges();
                 krakflixContext.Dispose();
                 return true;
@@ -43,6 +47,7 @@ namespace Krakflix.Controlador
         }
         public bool borrarPeli(string filmSelected)
         {
+            krakflixContext = new KrakflixDBEntities3();
             var filmtoDelete = krakflixContext.Films.SingleOrDefault(f => f.Title == filmSelected);
             if (filmtoDelete != null)
             {

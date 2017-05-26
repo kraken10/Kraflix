@@ -49,7 +49,11 @@ namespace Krakflix.Vistas
             if (result == DialogResult.Yes)
             {
                 if (filmctr.borrarPeli(filmSelected) != false)
+                {
                     MessageBox.Show("Película Borrada correctamente", "Éxito");
+                    listBoxPelis.Items.Clear();
+                }
+
 
                 else
                     MessageBox.Show("Error al borrar la película", "Error");

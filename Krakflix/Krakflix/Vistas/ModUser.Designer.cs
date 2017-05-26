@@ -99,6 +99,7 @@
             this.Controls.Add(this.lblPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Contraseña";
             this.ResumeLayout(false);
             this.PerformLayout();

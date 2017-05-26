@@ -52,6 +52,7 @@ namespace Krakflix.Vistas
                 film.Description = txtDescription.Text.Trim();
                 film.PhotoPath = photo == true ? photoPath.ToString() : string.Empty;
                 film.Path = filmPath;
+                film.IdUser = _user.IdUser;
                 if (string.IsNullOrEmpty(film.Title) || film.Duration == 0 || film.Year == 0 || film.Rate == 0 || film.IdGenre == -1
                     || string.IsNullOrEmpty(film.Description) || pathSelected == false)
                 {
@@ -71,6 +72,7 @@ namespace Krakflix.Vistas
                         txtRate.Text = "";
                         cmbGenres.Text = "Selecciona";
                         txtYear.Text = "";
+                        txtDescription.Text = "";
                         lblCorrecto.Visible = false;
                     }
                 }
@@ -88,6 +90,7 @@ namespace Krakflix.Vistas
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 photoPath = dialog.FileName;
+                imgPeli.SizeMode = PictureBoxSizeMode.StretchImage;
                 imgPeli.Image = Image.FromFile(photoPath);
                 photo = true;
                 

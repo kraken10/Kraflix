@@ -28,7 +28,13 @@ namespace Krakflix.Controlador.Repositorios
         public IQueryable<Chapter> getChapterToPlay(IQueryable<Chapter> chapters, string idSerie, int tempSelected)
         {
             var query = chapters.Where(c => c.IdSerie == idSerie);
-            //var query = chapters.Where(c => c.IdSerie == idSerie).Where(c => c.temp == tempSelected);
+            return query;
+        }
+
+        public IQueryable<Chapter> getTemps(IQueryable<Chapter> allChapters, Serie serie)
+        {
+            var query = allChapters.Where(c => c.IdSerie == serie.IdSerie);
+            
             return query;
         }
     }

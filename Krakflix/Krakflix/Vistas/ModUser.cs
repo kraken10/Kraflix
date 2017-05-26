@@ -15,6 +15,7 @@ namespace Krakflix.Vistas
     {
         private UserController userctr = new UserController();
         private User _user;
+        private UserRepository userRepo = new UserRepository();
         public ModUser(User user)
         {
             InitializeComponent();
@@ -25,9 +26,14 @@ namespace Krakflix.Vistas
         {
             string oldPass = txtPassOld.Text;
             string newPass = txtPassNew.Text;
+            User UserToModify = userRepo.GetbyId(_user.IdUser).SingleOrDefault();
+            UserToModify.Password = newPass;
             if (oldPass != newPass)
-                if (userctr.cambiarPass(_user))
-                    MessageBox.Show("Password cambiada con éxito","Éxito");
+                if (userctr.cambiarPass(UserToModify))
+                {
+                    MessageBox.Show("Password cambiada con éxito", "Éxito");
+                    Close();
+                }
                 else
                     MessageBox.Show("Error al cambiar la password", "Error");
             else

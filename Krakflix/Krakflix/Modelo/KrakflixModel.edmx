@@ -11,7 +11,7 @@
           </Key>
           <Property Name="IdChapter" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdSerie" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Temp" Type="int" />
+          <Property Name="Temp" Type="int" Nullable="false" />
           <Property Name="Path" Type="varchar(max)" />
           <Property Name="NombreCap" Type="varchar(max)" />
         </EntityType>
@@ -288,7 +288,7 @@
           </Key>
           <Property Name="IdChapter" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdSerie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Temp" Type="Int32" />
+          <Property Name="Temp" Type="Int32" Nullable="false" />
           <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NombreCap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Serie" Relationship="KrakflixDBModel.FK_Chapter_Serie" FromRole="Chapter" ToRole="Serie" />

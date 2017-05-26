@@ -21,5 +21,14 @@ namespace Krakflix.Controlador
 
             return query;
         }
+        public IQueryable<User> GetbyId(int user)
+        {
+            krakflixContext = new KrakflixDBEntities3();
+
+            var query = from f in krakflixContext.Users
+                        select f;
+            query = query.Where(u => u.IdUser == user);
+            return query;
+        }
     }
 }

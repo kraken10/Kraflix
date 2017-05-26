@@ -1,10 +1,11 @@
 ﻿using Krakflix.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 
-namespace Krakflix.Controlador.Serie
+namespace Krakflix.Controlador
 {
     public class SerieController
     {
@@ -13,8 +14,19 @@ namespace Krakflix.Controlador.Serie
         {
             return false;
         }
-        public bool modificarSerie()
+        public bool modificarSerie(Serie serieToEdit)
         {
+            krakflixContext = new KrakflixDBEntities3();
+            var serieFinal = krakflixContext.Series.SingleOrDefault(f => f.IdSerie == serieToEdit.IdSerie);
+
+            if (serieFinal != null)
+            {
+                serieFinal = serieToEdit;
+                krakflixContext.Series.AddOrUpdate(serieFinal);
+                krakflixContext.SaveChanges();
+                krakflixContext.Dispose();
+                return true;
+            }
             return false;
         }
         public bool removeSerie(string serieTitle)

@@ -169,6 +169,7 @@ namespace Krakflix
             this.lblAñadirSerie.Name = "lblAñadirSerie";
             this.lblAñadirSerie.Size = new System.Drawing.Size(96, 20);
             this.lblAñadirSerie.Text = "-Añadir";
+            this.lblAñadirSerie.Click += new System.EventHandler(this.lblAñadirSerie_Click);
             // 
             // lblModificarSerie
             // 
@@ -176,6 +177,7 @@ namespace Krakflix
             this.lblModificarSerie.Name = "lblModificarSerie";
             this.lblModificarSerie.Size = new System.Drawing.Size(96, 20);
             this.lblModificarSerie.Text = "-Modificar";
+            this.lblModificarSerie.Click += new System.EventHandler(this.lblModificarSerie_Click);
             // 
             // lblEliminarSerie
             // 
@@ -183,6 +185,7 @@ namespace Krakflix
             this.lblEliminarSerie.Name = "lblEliminarSerie";
             this.lblEliminarSerie.Size = new System.Drawing.Size(96, 20);
             this.lblEliminarSerie.Text = "-Eliminar";
+            this.lblEliminarSerie.Click += new System.EventHandler(this.lblEliminarSerie_Click);
             // 
             // lblUser
             // 

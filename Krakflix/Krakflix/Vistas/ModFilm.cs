@@ -18,11 +18,12 @@ namespace Krakflix.Vistas
         private string filmPath = "";
         private User _user = new User();
         private GenreRepository genres;
-        private FilmController filmcontroller;
+        private FilmController filmcontroller = new FilmController();
         private FilmRepository filmsRepo = new FilmRepository();
         private bool photo = false;
         private bool pathSelected = false;
         private Film film;
+        private static string filmListBoxSelected;
         public ModFilm(User user)
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace Krakflix.Vistas
 
             foreach (var name in genresList)
             {
-               cmbGenreMod.Items.Add(name.Description);
+                cmbGenreMod.Items.Add(name.Description);
             }
         }
         private void imgPeli_Click(object sender, EventArgs e)
@@ -91,27 +92,34 @@ namespace Krakflix.Vistas
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            //para modificar habra que cambiar cosas
             try
             {
-                filmcontroller = new FilmController();
-                film = new Film();
-                film.Title = txtTitle.Text.Trim();
-                film.Duration = string.IsNullOrEmpty(txtDuration.Text.Trim()) ? 0 : int.Parse(txtDuration.Text);
-                film.IdGenre = cmbGenres.SelectedItem == null ? -1 : getGenre(cmbGenres.SelectedItem.ToString());
-                film.Year = string.IsNullOrEmpty(txtYear.Text.Trim()) ? 0 : int.Parse(txtYear.Text);
-                film.Rate = string.IsNullOrEmpty(txtRate.Text.Trim()) ? 0 : int.Parse(txtRate.Text);
-                film.Description = txtDescription.Text.Trim();
-                film.PhotoPath = photo == true ? photoPath.ToString() : string.Empty;
-                film.Path = filmPath;
-                if (string.IsNullOrEmpty(film.Title) || film.Duration == 0 || film.Year == 0 || film.Rate == 0 || film.IdGenre == -1
-                    || string.IsNullOrEmpty(film.Description))
+                var allFilms = filmsRepo.GetAll();
+                Film filmToedit = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
+
+                if (filmToedit.Title != txtTitle.Text)
+                    filmToedit.Title = txtTitle.Text;
+                if (filmToedit.Duration.ToString() != txtDuration.Text)
+                    filmToedit.Duration = int.Parse(txtDuration.Text);
+                if (filmToedit.IdGenre != getGenre(cmbGenreMod.SelectedItem.ToString()))
+                    filmToedit.IdGenre = getGenre(cmbGenreMod.SelectedItem.ToString());
+                if (filmToedit.Year.ToString() != txtYear.Text)
+                    filmToedit.Year = int.Parse(txtYear.Text);
+                if (pathSelected == true)
+                    filmToedit.Path = filmPath;
+                if (filmToedit.Description != txtDescription.Text)
+                    filmToedit.Description = txtDescription.Text;
+                if (photo == true)
+                    filmToedit.PhotoPath = photoPath;
+
+                if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtDuration.Text) || string.IsNullOrEmpty(txtYear.Text) || string.IsNullOrEmpty(txtRate.Text) || getGenre(cmbGenreMod.SelectedItem.ToString()) == -1
+                    || string.IsNullOrEmpty(txtDescription.Text))
                 {
                     MessageBox.Show("Faltan campos por rellenar", "Error");
                 }
                 else
                 {
-                    if (filmcontroller.modificarPeli(film) != true)
+                    if (filmcontroller.modificarPeli(filmToedit) != true)
                     {
                         MessageBox.Show("Ha ocurrido un error al modificar la pelicula", "Error");
                     }
@@ -123,7 +131,9 @@ namespace Krakflix.Vistas
                         txtRate.Text = "";
                         cmbGenres.Text = "Selecciona";
                         txtYear.Text = "";
+                        txtDescription.Text = "";
                         lblCorrecto.Visible = false;
+                        imgPeli.InitialImage = null;
                     }
                 }
             }
@@ -132,7 +142,7 @@ namespace Krakflix.Vistas
                 MessageBox.Show("Campos Rellenados incorrectamente" + q.Message, "Error");
             }
         }
-        
+
         private void showFilm(Film film)
         {
             txtTitle.Text = "";
@@ -146,9 +156,18 @@ namespace Krakflix.Vistas
             txtYear.Text = film.Year.ToString();
             cmbGenreMod.SelectedItem = getGenre(film.IdGenre);
             cmbGenreMod.Text = getGenre(film.IdGenre);
-            txtRate.Text =  film.Rate.ToString();
+            txtRate.Text = film.Rate.ToString();
             txtDescription.Text = film.Description;
-            imgPeli.Image = Image.FromFile(film.PhotoPath);
+            try
+            {
+                imgPeli.Image = Image.FromFile(film.PhotoPath);
+            }
+            catch (Exception)
+            {
+
+            }
+
+
         }
         public string getGenre(int genre)
         {
@@ -190,7 +209,7 @@ namespace Krakflix.Vistas
 
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string filmListBoxSelected = listBoxPelis.SelectedItem.ToString();
+            filmListBoxSelected = listBoxPelis.SelectedItem.ToString();
             var allFilms = filmsRepo.GetAll();
             Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
             showFilm(filmtoShow);

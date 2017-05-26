@@ -1,6 +1,5 @@
 ﻿using Krakflix.Controlador;
 using Krakflix.Controlador.Repositorios;
-using Krakflix.Controlador.Serie;
 using Krakflix.Modelo;
 using System;
 using System.Collections.Generic;
