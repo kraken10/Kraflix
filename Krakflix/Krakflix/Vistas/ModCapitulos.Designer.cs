@@ -34,12 +34,13 @@
             this.lblTemporada = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbTempMod = new System.Windows.Forms.ComboBox();
             this.lblTemporadaMod = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblRuta = new System.Windows.Forms.Label();
             this.btnRuta = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCorrecto = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCapitulos
@@ -65,6 +66,7 @@
             this.cmbCap.TabIndex = 52;
             this.cmbCap.TabStop = false;
             this.cmbCap.Text = "Selecciona";
+            this.cmbCap.SelectedIndexChanged += new System.EventHandler(this.cmbCap_SelectedIndexChanged);
             // 
             // cmbTemp
             // 
@@ -77,6 +79,7 @@
             this.cmbTemp.TabIndex = 54;
             this.cmbTemp.TabStop = false;
             this.cmbTemp.Text = "Selecciona";
+            this.cmbTemp.SelectedIndexChanged += new System.EventHandler(this.cmbTemp_SelectedIndexChanged);
             // 
             // lblTemporada
             // 
@@ -110,17 +113,17 @@
             this.txtTitle.Size = new System.Drawing.Size(187, 25);
             this.txtTitle.TabIndex = 55;
             // 
-            // comboBox2
+            // cmbTempMod
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(184, 133);
-            this.comboBox2.MaxDropDownItems = 10;
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(101, 29);
-            this.comboBox2.TabIndex = 58;
-            this.comboBox2.TabStop = false;
-            this.comboBox2.Text = "Selecciona";
+            this.cmbTempMod.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cmbTempMod.FormattingEnabled = true;
+            this.cmbTempMod.Location = new System.Drawing.Point(184, 133);
+            this.cmbTempMod.MaxDropDownItems = 10;
+            this.cmbTempMod.Name = "cmbTempMod";
+            this.cmbTempMod.Size = new System.Drawing.Size(101, 29);
+            this.cmbTempMod.TabIndex = 58;
+            this.cmbTempMod.TabStop = false;
+            this.cmbTempMod.Text = "Selecciona";
             // 
             // lblTemporadaMod
             // 
@@ -134,17 +137,17 @@
             this.lblTemporadaMod.TabIndex = 57;
             this.lblTemporadaMod.Text = "Temporada";
             // 
-            // label1
+            // lblRuta
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(120, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 21);
-            this.label1.TabIndex = 59;
-            this.label1.Text = "Ruta";
+            this.lblRuta.AutoSize = true;
+            this.lblRuta.BackColor = System.Drawing.Color.Transparent;
+            this.lblRuta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRuta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblRuta.Location = new System.Drawing.Point(120, 182);
+            this.lblRuta.Name = "lblRuta";
+            this.lblRuta.Size = new System.Drawing.Size(42, 21);
+            this.lblRuta.TabIndex = 59;
+            this.lblRuta.Text = "Ruta";
             // 
             // btnRuta
             // 
@@ -156,28 +159,38 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
-            // label2
+            // lblCorrecto
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(284, 179);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 21);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Correcto";
-            this.label2.Visible = false;
+            this.lblCorrecto.AutoSize = true;
+            this.lblCorrecto.BackColor = System.Drawing.Color.Transparent;
+            this.lblCorrecto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblCorrecto.Location = new System.Drawing.Point(284, 179);
+            this.lblCorrecto.Name = "lblCorrecto";
+            this.lblCorrecto.Size = new System.Drawing.Size(17, 21);
+            this.lblCorrecto.TabIndex = 61;
+            this.lblCorrecto.Text = "_";
+            this.lblCorrecto.Visible = false;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(184, 244);
+            this.btnModificar.Location = new System.Drawing.Point(124, 243);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 62;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(288, 243);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 63;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // ModCapitulos
             // 
@@ -186,11 +199,12 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(507, 299);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCorrecto);
             this.Controls.Add(this.btnRuta);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.lblRuta);
+            this.Controls.Add(this.cmbTempMod);
             this.Controls.Add(this.lblTemporadaMod);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtTitle);
@@ -213,11 +227,12 @@
         private System.Windows.Forms.Label lblTemporada;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbTempMod;
         private System.Windows.Forms.Label lblTemporadaMod;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRuta;
         private System.Windows.Forms.Button btnRuta;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCorrecto;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

@@ -18,7 +18,7 @@ namespace Krakflix.Controlador.Repositorios
                         select c;
             return query;
         }
-
+        
         public IQueryable<Chapter> getById(IQueryable<Chapter> allChapters, string idSerie, int temp)
         {
             var query = from c in allChapters.Where(c => c.IdSerie == idSerie && c.Temp == temp)
@@ -31,10 +31,10 @@ namespace Krakflix.Controlador.Repositorios
             return query;
         }
 
-        public IQueryable<Chapter> getTemps(IQueryable<Chapter> allChapters, Serie serie)
+        public int getTemps(IQueryable<Chapter> allChapters, Serie serie)
         {
-            var query = allChapters.Where(c => c.IdSerie == serie.IdSerie);
-            
+            var query = allChapters.Where(c => c.IdSerie == serie.IdSerie).Max(c => c.Temp);
+                  
             return query;
         }
     }

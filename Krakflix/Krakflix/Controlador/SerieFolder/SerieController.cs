@@ -9,10 +9,24 @@ namespace Krakflix.Controlador
 {
     public class SerieController
     {
-        private KrakflixDBEntities3 krakflixContext = new KrakflixDBEntities3();
-        public bool crearSerie()
+        private KrakflixDBEntities3 krakflixContext;
+        private Random rnd ;
+        public bool crearSerie(Serie serie)
         {
-            return false;
+            try
+            {
+                krakflixContext = new KrakflixDBEntities3();
+                rnd = new Random();
+                serie.IdSerie = serie.Title.ElementAt(2).ToString() + serie.Title.ElementAt(4) + rnd.Next(10, 100);
+                krakflixContext.Series.Add(serie);
+                krakflixContext.SaveChanges();
+                krakflixContext.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         public bool modificarSerie(Serie serieToEdit)
         {
