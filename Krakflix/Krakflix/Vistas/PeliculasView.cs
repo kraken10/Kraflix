@@ -1,6 +1,7 @@
 ﻿using Krakflix.Controlador;
 using Krakflix.Controlador.Repositorios;
 using Krakflix.Modelo;
+using Krakflix.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,7 @@ namespace Krakflix.Vistas
             var filmsById = filmsRepo.GetByUser(allFilms, genreInt, _user).ToList();
 
             listBoxPelis.Items.Clear();
+            cmbGenres.Text = "Todas";
             foreach (var film in filmsById)
             {
                 listBoxPelis.Items.Add(film.Title);
@@ -59,36 +61,76 @@ namespace Krakflix.Vistas
 
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filmSelected = listBoxPelis.SelectedItem.ToString();
-            var allFilms = filmsRepo.GetAll();
-            Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
-            showFilm(filmtoShow);
+            try
+            {
+                filmSelected = listBoxPelis.SelectedItem.ToString();
+                var allFilms = filmsRepo.GetAll();
+                Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
+                showFilm(filmtoShow);
+            }
+            catch (NullReferenceException)
+            {
+
+            }
+
         }
 
         private void showFilm(Film film)
         {
-            lblTitulo.Text = "";
-            lblDuration.Text = "";
-            lblYear.Text = "";
-            lblRate.Text = "";
-            lblDescripcion.Text = "";
+            try
+            {
+                lblTitulo.Text = "";
+                lblDuration.Text = "";
+                lblYear.Text = "";
+                lblRate.Text = "";
+                lblDescripcion.Text = "";
 
-            lblTitulo.Text = "Título: " + film.Title;
-            lblDuration.Text = "Duración: " + film.Duration + " min";
-            lblYear.Text = "Año: " + film.Year;
-            lblRate.Text = "Puntuación: " + film.Rate + "/10";
-            lblDescripcion.Text = film.Description;
-            imgPelicula.Image = Image.FromFile(film.PhotoPath);
+                lblTitulo.Text = "Título: " + film.Title;
+                lblDuration.Text = "Duración: " + film.Duration + " min";
+                lblYear.Text = "Año: " + film.Year;
+                lblRate.Text = "Puntuación: " + film.Rate + "/10";
+                lblDescripcion.Text = film.Description;
+                imgPelicula.Image = Image.FromFile(film.PhotoPath);
+            }
+            catch (Exception)
+            {
+                var bmp = new Bitmap(Resources.NoPhoto);
+                imgPelicula.Image = bmp;
+            }
+
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            var allFilms = filmsRepo.GetAll();
-            Film filmtoPlay = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
-            if (filmtoPlay != null)
-                Process.Start("wmplayer", filmtoPlay.Path);
-            else
-                MessageBox.Show("No se ha seleccionado ninguna película","Error");
+            try
+            {
+                var allFilms = filmsRepo.GetAll();
+                Film filmtoPlay = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
+                if (filmtoPlay != null)
+                {
+                    if (filmtoPlay.Path.Contains("http"))
+                    {
+                        if (filmtoPlay.Path.Contains("youtube"))
+                        {
+                            VideoOnline v = new VideoOnline(filmtoPlay.Path);
+                            v.Show();
+                        }
+                        else
+                            Process.Start(filmtoPlay.Path);
+                    }
+                    else
+                    {
+                        Process.Start("wmplayer", filmtoPlay.Path);
+                    }
+                }
+                else
+                    MessageBox.Show("No se ha seleccionado ninguna película", "Error");
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No se ha seleccionado ninguna pelicula", "Error al reproducir");
+            }
+
         }
         public int getGenre(string genre)
         {
@@ -107,6 +149,6 @@ namespace Krakflix.Vistas
             }
             return -1;
         }
-       
+
     }
 }

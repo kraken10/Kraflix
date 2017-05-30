@@ -48,9 +48,11 @@ namespace Krakflix.Vistas
             // 
             // imgPelicula
             // 
-            this.imgPelicula.Location = new System.Drawing.Point(625, 72);
+            this.imgPelicula.BackgroundImage = global::Krakflix.Properties.Resources.NoPhoto;
+            this.imgPelicula.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgPelicula.Location = new System.Drawing.Point(457, 72);
             this.imgPelicula.Name = "imgPelicula";
-            this.imgPelicula.Size = new System.Drawing.Size(250, 223);
+            this.imgPelicula.Size = new System.Drawing.Size(418, 223);
             this.imgPelicula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgPelicula.TabIndex = 0;
             this.imgPelicula.TabStop = false;
@@ -163,7 +165,7 @@ namespace Krakflix.Vistas
             this.lblTituloDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblTituloDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblTituloDescripcion.Location = new System.Drawing.Point(620, 298);
+            this.lblTituloDescripcion.Location = new System.Drawing.Point(452, 298);
             this.lblTituloDescripcion.Name = "lblTituloDescripcion";
             this.lblTituloDescripcion.Size = new System.Drawing.Size(124, 30);
             this.lblTituloDescripcion.TabIndex = 13;
@@ -171,13 +173,12 @@ namespace Krakflix.Vistas
             // 
             // lblDescripcion
             // 
-            this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblDescripcion.Location = new System.Drawing.Point(621, 354);
+            this.lblDescripcion.Location = new System.Drawing.Point(453, 352);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(0, 21);
+            this.lblDescripcion.Size = new System.Drawing.Size(735, 380);
             this.lblDescripcion.TabIndex = 14;
             // 
             // PeliculasView

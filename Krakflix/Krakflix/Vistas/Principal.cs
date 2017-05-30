@@ -136,7 +136,8 @@ namespace Krakflix
 
         private void lblAñadirSerie_Click(object sender, EventArgs e)
         {
-
+            AddSerie addSerie = new AddSerie(_user);
+            addSerie.Show();
         }
 
         private void lblModificarSerie_Click(object sender, EventArgs e)

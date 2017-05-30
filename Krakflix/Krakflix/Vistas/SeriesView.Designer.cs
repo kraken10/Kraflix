@@ -53,9 +53,9 @@ namespace Krakflix.Vistas
             // 
             // imgSerie
             // 
-            this.imgSerie.Location = new System.Drawing.Point(511, 78);
+            this.imgSerie.Location = new System.Drawing.Point(409, 78);
             this.imgSerie.Name = "imgSerie";
-            this.imgSerie.Size = new System.Drawing.Size(250, 223);
+            this.imgSerie.Size = new System.Drawing.Size(352, 223);
             this.imgSerie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgSerie.TabIndex = 0;
             this.imgSerie.TabStop = false;
@@ -168,7 +168,7 @@ namespace Krakflix.Vistas
             this.lblTituloSerieDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloSerieDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblTituloSerieDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblTituloSerieDescripcion.Location = new System.Drawing.Point(506, 304);
+            this.lblTituloSerieDescripcion.Location = new System.Drawing.Point(404, 304);
             this.lblTituloSerieDescripcion.Name = "lblTituloSerieDescripcion";
             this.lblTituloSerieDescripcion.Size = new System.Drawing.Size(124, 30);
             this.lblTituloSerieDescripcion.TabIndex = 13;
@@ -225,13 +225,12 @@ namespace Krakflix.Vistas
             // 
             // lblDescripcionSerie
             // 
-            this.lblDescripcionSerie.AutoSize = true;
             this.lblDescripcionSerie.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcionSerie.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblDescripcionSerie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblDescripcionSerie.Location = new System.Drawing.Point(507, 352);
+            this.lblDescripcionSerie.Location = new System.Drawing.Point(405, 352);
             this.lblDescripcionSerie.Name = "lblDescripcionSerie";
-            this.lblDescripcionSerie.Size = new System.Drawing.Size(0, 21);
+            this.lblDescripcionSerie.Size = new System.Drawing.Size(735, 380);
             this.lblDescripcionSerie.TabIndex = 14;
             // 
             // SeriesView

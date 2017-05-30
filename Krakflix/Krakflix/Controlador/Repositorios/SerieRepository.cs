@@ -41,7 +41,11 @@ namespace Krakflix.Controlador.Repositorios
 
             return query;
         }
-        
-
+        public int getTempsById (IQueryable<Serie> series, string idSerie)
+        {
+            var query = series.Where(c => c.IdSerie == idSerie).Max(c => c.NumTemp);
+            
+            return query;
+        }
     }
 }

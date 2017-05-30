@@ -43,7 +43,7 @@ namespace Krakflix.Vistas
             serieRepo = new SerieRepository();
             string genre = cmbGenresSerie.SelectedItem != null ? cmbGenresSerie.SelectedItem.ToString() : string.Empty;
             int genreInt = getGenre(genre);
-            var allSeries= serieRepo.getAll();
+            var allSeries = serieRepo.getAll();
             var SerieById = serieRepo.GetByUser(allSeries, genreInt, _user).ToList();
 
             listBoxSeries.Items.Clear();
@@ -82,7 +82,7 @@ namespace Krakflix.Vistas
             cmbTemp.Items.Clear();
             for (int i = 0; i < serie.NumTemp; i++)
             {
-                cmbTemp.Items.Add(i+1);
+                cmbTemp.Items.Add(i + 1);
             }
             serieSelected = serie.IdSerie;
         }
@@ -91,6 +91,7 @@ namespace Krakflix.Vistas
             var allChapters = chapterRepo.getAll();
             List<Chapter> chapterbyId = chapterRepo.getById(allChapters, serieSelected, temp).ToList();
             cmbCaps.Items.Clear();
+            cmbCaps.Text = "Selecciona uno";
             foreach (var chapter in chapterbyId)
             {
                 cmbCaps.Items.Add(chapter.NombreCap);
@@ -99,13 +100,32 @@ namespace Krakflix.Vistas
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            var allchapter = chapterRepo.getAll();
-            int tempSelected = (int)cmbTemp.SelectedItem;
-            Chapter chapterToPlay = chapterRepo.getChapterToPlay(allchapter, serieSelected, tempSelected).FirstOrDefault();
-            if (chapterToPlay != null)
-                Process.Start("wmplayer", chapterToPlay.Path);
-            else
-                MessageBox.Show("No has seleccionado un capítulo", "Error");
+            try
+            {
+                var allchapter = chapterRepo.getAll();
+                int tempSelected = (int)cmbTemp.SelectedItem;
+                string chapterTitle = cmbCaps.SelectedItem.ToString();
+                Chapter chapterToPlay = chapterRepo.getChapterToPlay(allchapter, serieSelected, tempSelected, chapterTitle).FirstOrDefault();
+                if (chapterToPlay.Path.Contains("http"))
+                {
+                    if (chapterToPlay.Path.Contains("youtube"))
+                    {
+                        VideoOnline v = new VideoOnline(chapterToPlay.Path);
+                        v.Show();
+                    }
+                    else
+                        Process.Start(chapterToPlay.Path);
+                }
+                else
+                {
+                    Process.Start("wmplayer", chapterToPlay.Path);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No se ha seleccionado capitulo", "Error al reproducir");
+            }
+
         }
         public int getGenre(string genre)
         {
@@ -129,7 +149,7 @@ namespace Krakflix.Vistas
         {
             int tempSelected = (int)cmbTemp.SelectedItem;
             cargarCap(serieSelected, tempSelected);
-            
+
         }
 
         private void cmbTemp_SelectionChangeCommitted(object sender, EventArgs e)

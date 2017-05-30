@@ -76,6 +76,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\AddChapter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\AddChapter.Designer.cs">
+      <DependentUpon>AddChapter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\AddFilm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,15 @@
     <Compile Include="Vistas\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\VideoOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\VideoOnline.Designer.cs">
+      <DependentUpon>VideoOnline.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vistas\AddChapter.resx">
+      <DependentUpon>AddChapter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\AddFilm.resx">
       <DependentUpon>AddFilm.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +245,9 @@
     <EmbeddedResource Include="Vistas\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\VideoOnline.resx">
+      <DependentUpon>VideoOnline.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="Modelo\KrakflixModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -250,6 +268,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -257,6 +283,15 @@
       <Lcid>0</Lcid>
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="ShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="WMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
@@ -286,6 +321,7 @@
       <LastGenOutput>KrakflixModel.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\backk.jpg" />
+    <None Include="Resources\NoPhoto.jpg" />
     <Content Include="Resources\search.jpg" />
     <None Include="Resources\backk1.jpg" />
     <Content Include="Resources\filmIntro.mp4" />

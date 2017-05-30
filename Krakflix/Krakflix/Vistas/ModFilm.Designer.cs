@@ -51,6 +51,8 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnModify = new System.Windows.Forms.Button();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.lblUrl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).BeginInit();
             this.SuspendLayout();
             // 
@@ -303,6 +305,26 @@
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
+            // txtUrl
+            // 
+            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUrl.Location = new System.Drawing.Point(717, 232);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(187, 25);
+            this.txtUrl.TabIndex = 32;
+            // 
+            // lblUrl
+            // 
+            this.lblUrl.AutoSize = true;
+            this.lblUrl.BackColor = System.Drawing.Color.Transparent;
+            this.lblUrl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblUrl.Location = new System.Drawing.Point(660, 234);
+            this.lblUrl.Name = "lblUrl";
+            this.lblUrl.Size = new System.Drawing.Size(31, 21);
+            this.lblUrl.TabIndex = 33;
+            this.lblUrl.Text = "Url";
+            // 
             // ModFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +332,8 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(916, 530);
+            this.Controls.Add(this.lblUrl);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblDescription);
@@ -368,5 +392,7 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Label lblUrl;
     }
 }

@@ -25,9 +25,9 @@ namespace Krakflix.Controlador.Repositorios
                         select c;
             return query;
         }
-        public IQueryable<Chapter> getChapterToPlay(IQueryable<Chapter> chapters, string idSerie, int tempSelected)
+        public IQueryable<Chapter> getChapterToPlay(IQueryable<Chapter> chapters, string idSerie, int tempSelected, string title)
         {
-            var query = chapters.Where(c => c.IdSerie == idSerie);
+            var query = chapters.Where(c => c.IdSerie == idSerie && c.NombreCap == title);
             return query;
         }
 
@@ -35,6 +35,12 @@ namespace Krakflix.Controlador.Repositorios
         {
             var query = allChapters.Where(c => c.IdSerie == serie.IdSerie).Max(c => c.Temp);
                   
+            return query;
+        }
+
+        public IQueryable<Chapter> getByTitle(IQueryable<Chapter> allChapters, string chapterTitle)
+        {
+            var query = allChapters.Where(c => c.NombreCap == chapterTitle);
             return query;
         }
     }

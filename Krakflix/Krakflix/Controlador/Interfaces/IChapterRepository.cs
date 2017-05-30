@@ -10,8 +10,10 @@ namespace Krakflix.Controlador.Interfaces
     {
         IQueryable<Chapter> getAll();
         IQueryable<Chapter> getById(IQueryable<Chapter> allChapters, string titleSerie, int temp);
-        IQueryable<Chapter> getChapterToPlay(IQueryable<Chapter> chapters, string idSerie, int tempSelected);
+        IQueryable<Chapter> getChapterToPlay(IQueryable<Chapter> chapters, string idSerie, int tempSelected, string title);
         int getTemps(IQueryable<Chapter> allChapters, Serie serie);
-        
+        IQueryable<Chapter> getByTitle(IQueryable<Chapter> allChapters, string chapterTitle);
+
+
     }
 }

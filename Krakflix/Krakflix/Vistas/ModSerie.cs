@@ -116,6 +116,9 @@ namespace Krakflix.Vistas
             var allSeries = serieRepo.getAll();
             serietoShow = serieRepo.GetBytitle(allSeries, serieSelected).FirstOrDefault();
             showSerie(serietoShow);
+            btnCapitulosMod.Enabled = true;
+            btnAddChap.Enabled = true;
+            
         }
         private void showSerie(Serie serie)
         {
@@ -182,6 +185,12 @@ namespace Krakflix.Vistas
             {
                 MessageBox.Show("Campos Rellenados incorrectamente" + q.Message, "Error");
             }
+        }
+        
+        private void btnAddChap_Click_1(object sender, EventArgs e)
+        {
+            AddChapter addChapter = new AddChapter(serieSelected);
+            addChapter.Show();
         }
     }
 }

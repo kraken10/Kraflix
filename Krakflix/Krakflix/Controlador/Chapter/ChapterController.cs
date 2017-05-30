@@ -10,8 +10,25 @@ namespace Krakflix.Controlador
     
     public class ChapterController
     {
-        private KrakflixDBEntities3 krakflixContext; 
-
+        private KrakflixDBEntities3 krakflixContext;
+        private Random rnd;
+        public bool addChapter(Chapter chapter)
+        {
+            try
+            {
+                krakflixContext = new KrakflixDBEntities3();
+                rnd = new Random();
+                chapter.IdChapter = chapter.NombreCap.ElementAt(2).ToString() + chapter.NombreCap.ElementAt(4) + rnd.Next(10, 100);
+                krakflixContext.Chapters.Add(chapter);
+                krakflixContext.SaveChanges();
+                krakflixContext.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public bool modififyChapter(Chapter chapterToEdit)
         {
             krakflixContext = new KrakflixDBEntities3();

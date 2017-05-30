@@ -111,6 +111,9 @@ namespace Krakflix.Vistas
                     filmToedit.Description = txtDescription.Text;
                 if (photo == true)
                     filmToedit.PhotoPath = photoPath;
+                if (!string.IsNullOrEmpty(txtUrl.Text))
+                    filmToedit.Path = txtUrl.Text;
+                
 
                 if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtDuration.Text) || string.IsNullOrEmpty(txtYear.Text) || string.IsNullOrEmpty(txtRate.Text) || getGenre(cmbGenreMod.SelectedItem.ToString()) == -1
                     || string.IsNullOrEmpty(txtDescription.Text))
@@ -209,10 +212,15 @@ namespace Krakflix.Vistas
 
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filmListBoxSelected = listBoxPelis.SelectedItem.ToString();
-            var allFilms = filmsRepo.GetAll();
-            Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
-            showFilm(filmtoShow);
+            try
+            {
+                filmListBoxSelected = listBoxPelis.SelectedItem.ToString();
+                var allFilms = filmsRepo.GetAll();
+                Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
+                showFilm(filmtoShow);
+            }
+            catch (Exception) {}
+            
         }
     }
 }

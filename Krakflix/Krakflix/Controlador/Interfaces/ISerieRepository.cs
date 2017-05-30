@@ -12,5 +12,6 @@ namespace Krakflix.Controlador
         IQueryable<Serie> GetBytitle(IQueryable<Serie> series, string serieSelected);
         IQueryable<Serie> GetById(IQueryable<Serie> series, string serieSelected);
         IQueryable<Serie> GetByUser(IQueryable<Serie> series, int genre, User user);
+        int getTempsById(IQueryable<Serie> series, string idSerie);
     }
 }

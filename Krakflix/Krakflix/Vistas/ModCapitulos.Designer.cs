@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModCapitulos));
             this.lblCapitulos = new System.Windows.Forms.Label();
             this.cmbCap = new System.Windows.Forms.ComboBox();
             this.cmbTemp = new System.Windows.Forms.ComboBox();
@@ -41,6 +42,8 @@
             this.lblCorrecto = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.lblUrl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCapitulos
@@ -165,16 +168,16 @@
             this.lblCorrecto.BackColor = System.Drawing.Color.Transparent;
             this.lblCorrecto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorrecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblCorrecto.Location = new System.Drawing.Point(284, 179);
+            this.lblCorrecto.Location = new System.Drawing.Point(282, 182);
             this.lblCorrecto.Name = "lblCorrecto";
-            this.lblCorrecto.Size = new System.Drawing.Size(17, 21);
+            this.lblCorrecto.Size = new System.Drawing.Size(70, 21);
             this.lblCorrecto.TabIndex = 61;
-            this.lblCorrecto.Text = "_";
+            this.lblCorrecto.Text = "Correcto";
             this.lblCorrecto.Visible = false;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(124, 243);
+            this.btnModificar.Location = new System.Drawing.Point(124, 319);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 62;
@@ -184,7 +187,7 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(288, 243);
+            this.btnBorrar.Location = new System.Drawing.Point(286, 319);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 63;
@@ -192,13 +195,35 @@
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
+            // txtUrl
+            // 
+            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUrl.Location = new System.Drawing.Point(184, 228);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(187, 25);
+            this.txtUrl.TabIndex = 64;
+            // 
+            // lblUrl
+            // 
+            this.lblUrl.AutoSize = true;
+            this.lblUrl.BackColor = System.Drawing.Color.Transparent;
+            this.lblUrl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblUrl.Location = new System.Drawing.Point(120, 228);
+            this.lblUrl.Name = "lblUrl";
+            this.lblUrl.Size = new System.Drawing.Size(31, 21);
+            this.lblUrl.TabIndex = 65;
+            this.lblUrl.Text = "Url";
+            // 
             // ModCapitulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(507, 299);
+            this.ClientSize = new System.Drawing.Size(507, 412);
+            this.Controls.Add(this.lblUrl);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblCorrecto);
@@ -212,7 +237,9 @@
             this.Controls.Add(this.lblTemporada);
             this.Controls.Add(this.cmbCap);
             this.Controls.Add(this.lblCapitulos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModCapitulos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModCapitulos";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -234,5 +261,7 @@
         private System.Windows.Forms.Label lblCorrecto;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Label lblUrl;
     }
 }

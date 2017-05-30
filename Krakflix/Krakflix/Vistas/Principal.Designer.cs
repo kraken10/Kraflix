@@ -211,7 +211,7 @@ namespace Krakflix
             // 
             this.lblFoto.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblFoto.Name = "lblFoto";
-            this.lblFoto.Size = new System.Drawing.Size(45, 20);
+            this.lblFoto.Size = new System.Drawing.Size(96, 20);
             this.lblFoto.Text = "-Foto";
             this.lblFoto.Click += new System.EventHandler(this.lblFoto_Click);
             // 
