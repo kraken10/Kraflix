@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSerie));
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -225,6 +226,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.imgSerie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSerie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSerie";

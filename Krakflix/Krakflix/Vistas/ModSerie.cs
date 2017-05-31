@@ -1,6 +1,7 @@
 ﻿using Krakflix.Controlador;
 using Krakflix.Controlador.Repositorios;
 using Krakflix.Modelo;
+using Krakflix.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -129,7 +130,12 @@ namespace Krakflix.Vistas
             txtYear.Text = serie.Year.ToString();
             txtRate.Text = serie.Rate.ToString();
             txtDescription.Text = serie.Description;
-            imgSerie.Image = Image.FromFile(serie.PhotoPath);
+            if(serie.PhotoPath == "")
+            {
+                var bitmap = new Bitmap(Resources.NoPhoto);
+                imgSerie.Image = bitmap;
+            }else
+                imgSerie.Image = Image.FromFile(serie.PhotoPath);
             serieSelected = serie.IdSerie;
         }
 
@@ -190,15 +196,10 @@ namespace Krakflix.Vistas
             AddChapter addChapter = new AddChapter(serieSelected);
             addChapter.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            cargarSeries(_user);
-        }
-
+        
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            cargarSeries(_user);
         }
     }
 }

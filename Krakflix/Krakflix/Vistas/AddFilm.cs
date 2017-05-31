@@ -52,9 +52,11 @@ namespace Krakflix.Vistas
                 film.Description = txtDescription.Text.Trim();
                 film.PhotoPath = photo == true ? photoPath.ToString() : string.Empty;
                 film.Path = filmPath;
+                if (!string.IsNullOrEmpty(txtUrl.Text))
+                    film.Path = txtUrl.Text;
                 film.IdUser = _user.IdUser;
                 if (string.IsNullOrEmpty(film.Title) || film.Duration == 0 || film.Year == 0 || film.Rate == 0 || film.IdGenre == -1
-                    || string.IsNullOrEmpty(film.Description) || pathSelected == false)
+                    || string.IsNullOrEmpty(film.Description) || (pathSelected == false && string.IsNullOrEmpty(txtUrl.Text)))
                 {
                     MessageBox.Show("Faltan campos por rellenar", "Error");
                 }
@@ -73,6 +75,7 @@ namespace Krakflix.Vistas
                         cmbGenres.Text = "Selecciona";
                         txtYear.Text = "";
                         txtDescription.Text = "";
+                        txtUrl.Text = "";
                         lblCorrecto.Visible = false;
                         imgPeli.Image = null;
                     }

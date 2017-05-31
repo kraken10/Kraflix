@@ -28,7 +28,7 @@ namespace Krakflix.Vistas
             string newPass = txtPassNew.Text;
             User UserToModify = userRepo.GetbyId(_user.IdUser).SingleOrDefault();
             UserToModify.Password = newPass;
-            if (oldPass != newPass)
+            if (oldPass != newPass && oldPass == _user.Password)
                 if (userctr.cambiarPass(UserToModify))
                 {
                     MessageBox.Show("Password cambiada con éxito", "Éxito");
@@ -37,7 +37,7 @@ namespace Krakflix.Vistas
                 else
                     MessageBox.Show("Error al cambiar la password", "Error");
             else
-                MessageBox.Show("La password no puede ser igual a la anterior", "Error");
+                MessageBox.Show("Error al introducir la password", "Error");
         }
     }
 }

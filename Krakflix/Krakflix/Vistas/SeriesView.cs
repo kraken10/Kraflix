@@ -1,6 +1,7 @@
 ﻿using Krakflix.Controlador;
 using Krakflix.Controlador.Repositorios;
 using Krakflix.Modelo;
+using Krakflix.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,7 @@ namespace Krakflix.Vistas
             }
 
         }
-        
+
         private void listBoxSeries_DoubleClick(object sender, EventArgs e)
         {
             serieSelected = listBoxSeries.SelectedItem.ToString();
@@ -73,7 +74,15 @@ namespace Krakflix.Vistas
             lblYearSerie.Text = "Año: " + serie.Year;
             lblRateSerie.Text = "Puntuación: " + serie.Rate + "/10";
             lblDescripcionSerie.Text = serie.Description;
-            imgSerie.Image = Image.FromFile(serie.PhotoPath);
+            if (imgSerie.Image == null)
+            {
+                var bmp = new Bitmap(Resources.NoPhoto);
+                imgSerie.Image = bmp;
+            }
+            else
+                imgSerie.Image = Image.FromFile(serie.PhotoPath);
+
+
             cmbTemp.Items.Clear();
             for (int i = 0; i < serie.NumTemp; i++)
             {

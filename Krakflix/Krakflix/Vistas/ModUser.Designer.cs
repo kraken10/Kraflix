@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModUser));
             this.lblPass = new System.Windows.Forms.Label();
             this.txtPassOld = new System.Windows.Forms.TextBox();
             this.txtPassNew = new System.Windows.Forms.TextBox();
@@ -54,6 +55,7 @@
             this.txtPassOld.Name = "txtPassOld";
             this.txtPassOld.Size = new System.Drawing.Size(187, 25);
             this.txtPassOld.TabIndex = 16;
+            this.txtPassOld.UseSystemPasswordChar = true;
             // 
             // txtPassNew
             // 
@@ -62,6 +64,7 @@
             this.txtPassNew.Name = "txtPassNew";
             this.txtPassNew.Size = new System.Drawing.Size(187, 25);
             this.txtPassNew.TabIndex = 17;
+            this.txtPassNew.UseSystemPasswordChar = true;
             // 
             // lblPass2
             // 
@@ -98,6 +101,7 @@
             this.Controls.Add(this.txtPassOld);
             this.Controls.Add(this.lblPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Contraseña";

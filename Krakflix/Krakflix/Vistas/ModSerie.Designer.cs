@@ -319,6 +319,7 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.imgSerie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModSerie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar serie";

@@ -159,5 +159,10 @@ namespace Krakflix
             RemoveSerie remSerie = new RemoveSerie(_user);
             remSerie.Show();
         }
+
+        private void panelPrueba_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

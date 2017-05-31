@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddChapter));
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRuta = new System.Windows.Forms.Button();
             this.lblRuta = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.cmbTemp = new System.Windows.Forms.ComboBox();
             this.lblTemporada = new System.Windows.Forms.Label();
             this.lblCorrecto = new System.Windows.Forms.Label();
+            this.lblUrl = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -127,6 +130,26 @@
             this.lblCorrecto.Text = "Correcto";
             this.lblCorrecto.Visible = false;
             // 
+            // lblUrl
+            // 
+            this.lblUrl.AutoSize = true;
+            this.lblUrl.BackColor = System.Drawing.Color.Transparent;
+            this.lblUrl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.lblUrl.Location = new System.Drawing.Point(123, 189);
+            this.lblUrl.Name = "lblUrl";
+            this.lblUrl.Size = new System.Drawing.Size(31, 21);
+            this.lblUrl.TabIndex = 72;
+            this.lblUrl.Text = "Url";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUrl.Location = new System.Drawing.Point(198, 189);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(187, 25);
+            this.txtUrl.TabIndex = 71;
+            // 
             // AddChapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +157,8 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(548, 327);
+            this.Controls.Add(this.lblUrl);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.lblCorrecto);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRuta);
@@ -142,6 +167,7 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.cmbTemp);
             this.Controls.Add(this.lblTemporada);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddChapter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Capítulos";
@@ -160,5 +186,7 @@
         private System.Windows.Forms.ComboBox cmbTemp;
         private System.Windows.Forms.Label lblTemporada;
         private System.Windows.Forms.Label lblCorrecto;
+        private System.Windows.Forms.Label lblUrl;
+        private System.Windows.Forms.TextBox txtUrl;
     }
 }

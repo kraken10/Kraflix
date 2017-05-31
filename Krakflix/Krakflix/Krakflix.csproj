@@ -11,6 +11,25 @@
     <AssemblyName>Krakflix</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Borja\Desktop\prueba\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Krakflix</ProductName>
+    <PublisherName>Kraken apps</PublisherName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +49,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6AFAC874CAD55E7E6FC5FFEA9C46402BB93F9D7D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Krakflix_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -57,16 +91,16 @@
   <ItemGroup>
     <Compile Include="Controlador\Chapter\ChapterController.cs" />
     <Compile Include="Controlador\Film\FilmController.cs" />
-    <Compile Include="Controlador\Interfaces\IChapterRepository.cs" />
-    <Compile Include="Controlador\Interfaces\IFilmRepository.cs" />
-    <Compile Include="Controlador\Interfaces\ISerieRepository.cs" />
+    <Compile Include="Controlador\Repositorios\Interfaces\IChapterRepository.cs" />
+    <Compile Include="Controlador\Repositorios\Interfaces\IFilmRepository.cs" />
+    <Compile Include="Controlador\Repositorios\Interfaces\ISerieRepository.cs" />
     <Compile Include="Controlador\Login\LoginController.cs" />
     <Compile Include="Controlador\Registrer\RegisterController.cs" />
     <Compile Include="Controlador\Repositorios\ChapterRepository.cs" />
     <Compile Include="Controlador\Repositorios\FilmRepository.cs" />
     <Compile Include="Controlador\Repositorios\GenreRepository.cs" />
-    <Compile Include="Controlador\Interfaces\IGenreRepository.cs" />
-    <Compile Include="Controlador\Interfaces\IUserRepository.cs" />
+    <Compile Include="Controlador\Repositorios\Interfaces\IGenreRepository.cs" />
+    <Compile Include="Controlador\Repositorios\Interfaces\IUserRepository.cs" />
     <Compile Include="Controlador\Repositorios\SerieRepository.cs" />
     <Compile Include="Controlador\Repositorios\UserRepository.cs" />
     <Compile Include="Controlador\SerieFolder\SerieController.cs" />
@@ -253,6 +287,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KrakflixModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Krakflix_TemporaryKey.pfx" />
     <None Include="Modelo\KrakflixModel.edmx.diagram">
       <DependentUpon>KrakflixModel.edmx</DependentUpon>
     </None>
@@ -310,6 +345,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Logo2.ico" />
     <Content Include="Modelo\KrakflixModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KrakflixModel.edmx</DependentUpon>
@@ -330,6 +366,28 @@
     <None Include="Resources\defaultPhoto1.png" />
     <None Include="Resources\defaultPhoto.png" />
     <None Include="Resources\starwars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,KB2468871">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

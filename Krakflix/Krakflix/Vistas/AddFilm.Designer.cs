@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFilm));
             this.imgPeli = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -47,6 +48,8 @@
             this.btnRuta = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCorrecto = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,6 +256,26 @@
             this.lblCorrecto.Text = "Correcto";
             this.lblCorrecto.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.label3.Location = new System.Drawing.Point(76, 456);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 21);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Url";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUrl.Location = new System.Drawing.Point(145, 452);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(187, 25);
+            this.txtUrl.TabIndex = 23;
+            // 
             // AddFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +283,8 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(916, 530);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.lblCorrecto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRuta);
@@ -280,7 +305,9 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.imgPeli);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddFilm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Añadir Pelicula";
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).EndInit();
             this.ResumeLayout(false);
@@ -309,5 +336,7 @@
         private System.Windows.Forms.Button btnRuta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCorrecto;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtUrl;
     }
 }

@@ -42,14 +42,18 @@ namespace Krakflix.Vistas
             chapter.IdSerie = _serieId;
             chapter.Temp = cmbTemp.SelectedItem == null ? 0 : int.Parse(cmbTemp.SelectedItem.ToString());
             chapter.NombreCap = txtTitle.Text.Trim();
-            chapter.Path = chapterPath;
-            if (chapter.Temp != 0 || !string.IsNullOrEmpty(txtTitle.Text) || pathSelected)
+            if (!pathSelected)
+                chapter.Path = txtUrl.Text;
+            else
+                chapter.Path = chapterPath;
+            if (chapter.Temp != 0 || !string.IsNullOrEmpty(txtTitle.Text) || pathSelected || !string.IsNullOrEmpty(txtUrl.Text))
             {
                 if (chapterCtrl.addChapter(chapter))
                 {
                     cmbTemp.Text = "Selecciona";
                     cargartemp();
                     txtTitle.Text = "";
+                    txtUrl.Text = "";
                     lblCorrecto.Visible = false;
                     pathSelected = false;
                     MessageBox.Show("Capítulo añadido con éxito", "Éxito");
