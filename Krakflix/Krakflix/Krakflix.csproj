@@ -321,6 +321,7 @@
       <LastGenOutput>KrakflixModel.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\backk.jpg" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\NoPhoto.jpg" />
     <Content Include="Resources\search.jpg" />
     <None Include="Resources\backk1.jpg" />

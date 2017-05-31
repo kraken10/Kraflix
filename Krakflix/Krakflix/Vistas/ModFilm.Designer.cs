@@ -59,9 +59,9 @@
             // imgPeli
             // 
             this.imgPeli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgPeli.Location = new System.Drawing.Point(717, 12);
+            this.imgPeli.Location = new System.Drawing.Point(627, 12);
             this.imgPeli.Name = "imgPeli";
-            this.imgPeli.Size = new System.Drawing.Size(187, 205);
+            this.imgPeli.Size = new System.Drawing.Size(277, 205);
             this.imgPeli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgPeli.TabIndex = 1;
             this.imgPeli.TabStop = false;
@@ -70,7 +70,7 @@
             // txtTitle
             // 
             this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(515, 25);
+            this.txtTitle.Location = new System.Drawing.Point(425, 25);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(187, 25);
             this.txtTitle.TabIndex = 8;
@@ -81,7 +81,7 @@
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblTitulo.Location = new System.Drawing.Point(449, 25);
+            this.lblTitulo.Location = new System.Drawing.Point(359, 25);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(49, 21);
             this.lblTitulo.TabIndex = 7;
@@ -137,7 +137,7 @@
             this.lblDuration.BackColor = System.Drawing.Color.Transparent;
             this.lblDuration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblDuration.Location = new System.Drawing.Point(425, 70);
+            this.lblDuration.Location = new System.Drawing.Point(335, 70);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(73, 21);
             this.lblDuration.TabIndex = 16;
@@ -146,7 +146,7 @@
             // txtDuration
             // 
             this.txtDuration.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDuration.Location = new System.Drawing.Point(515, 69);
+            this.txtDuration.Location = new System.Drawing.Point(425, 69);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(58, 25);
             this.txtDuration.TabIndex = 17;
@@ -157,7 +157,7 @@
             this.lblMin.BackColor = System.Drawing.Color.Transparent;
             this.lblMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblMin.Location = new System.Drawing.Point(590, 70);
+            this.lblMin.Location = new System.Drawing.Point(500, 70);
             this.lblMin.Name = "lblMin";
             this.lblMin.Size = new System.Drawing.Size(37, 21);
             this.lblMin.TabIndex = 18;
@@ -167,7 +167,7 @@
             // 
             this.cmbGenreMod.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbGenreMod.FormattingEnabled = true;
-            this.cmbGenreMod.Location = new System.Drawing.Point(515, 112);
+            this.cmbGenreMod.Location = new System.Drawing.Point(425, 112);
             this.cmbGenreMod.Name = "cmbGenreMod";
             this.cmbGenreMod.Size = new System.Drawing.Size(187, 29);
             this.cmbGenreMod.TabIndex = 20;
@@ -180,7 +180,7 @@
             this.lblGenreMod.BackColor = System.Drawing.Color.Transparent;
             this.lblGenreMod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenreMod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblGenreMod.Location = new System.Drawing.Point(437, 115);
+            this.lblGenreMod.Location = new System.Drawing.Point(347, 115);
             this.lblGenreMod.Name = "lblGenreMod";
             this.lblGenreMod.Size = new System.Drawing.Size(61, 21);
             this.lblGenreMod.TabIndex = 19;
@@ -189,7 +189,7 @@
             // txtYear
             // 
             this.txtYear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.Location = new System.Drawing.Point(515, 157);
+            this.txtYear.Location = new System.Drawing.Point(425, 157);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(90, 25);
             this.txtYear.TabIndex = 22;
@@ -209,7 +209,7 @@
             // txtRate
             // 
             this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(515, 196);
+            this.txtRate.Location = new System.Drawing.Point(425, 196);
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(58, 25);
             this.txtRate.TabIndex = 24;
@@ -220,7 +220,7 @@
             this.lblRate.BackColor = System.Drawing.Color.Transparent;
             this.lblRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblRate.Location = new System.Drawing.Point(410, 196);
+            this.lblRate.Location = new System.Drawing.Point(320, 196);
             this.lblRate.Name = "lblRate";
             this.lblRate.Size = new System.Drawing.Size(88, 21);
             this.lblRate.TabIndex = 23;
@@ -232,7 +232,7 @@
             this.lblRate2.BackColor = System.Drawing.Color.Transparent;
             this.lblRate2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRate2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblRate2.Location = new System.Drawing.Point(590, 196);
+            this.lblRate2.Location = new System.Drawing.Point(500, 196);
             this.lblRate2.Name = "lblRate2";
             this.lblRate2.Size = new System.Drawing.Size(34, 21);
             this.lblRate2.TabIndex = 25;
@@ -244,7 +244,7 @@
             this.lblCorrecto.BackColor = System.Drawing.Color.Transparent;
             this.lblCorrecto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorrecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblCorrecto.Location = new System.Drawing.Point(572, 233);
+            this.lblCorrecto.Location = new System.Drawing.Point(482, 233);
             this.lblCorrecto.Name = "lblCorrecto";
             this.lblCorrecto.Size = new System.Drawing.Size(70, 21);
             this.lblCorrecto.TabIndex = 28;
@@ -257,7 +257,7 @@
             this.lblRuta.BackColor = System.Drawing.Color.Transparent;
             this.lblRuta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRuta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblRuta.Location = new System.Drawing.Point(456, 233);
+            this.lblRuta.Location = new System.Drawing.Point(366, 233);
             this.lblRuta.Name = "lblRuta";
             this.lblRuta.Size = new System.Drawing.Size(42, 21);
             this.lblRuta.TabIndex = 27;
@@ -265,7 +265,7 @@
             // 
             // btnRuta
             // 
-            this.btnRuta.Location = new System.Drawing.Point(514, 234);
+            this.btnRuta.Location = new System.Drawing.Point(424, 234);
             this.btnRuta.Name = "btnRuta";
             this.btnRuta.Size = new System.Drawing.Size(52, 23);
             this.btnRuta.TabIndex = 26;
@@ -277,7 +277,7 @@
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(515, 279);
+            this.txtDescription.Location = new System.Drawing.Point(425, 279);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(389, 162);
@@ -289,7 +289,7 @@
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblDescription.Location = new System.Drawing.Point(418, 279);
+            this.lblDescription.Location = new System.Drawing.Point(328, 279);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(91, 21);
             this.lblDescription.TabIndex = 29;
@@ -297,7 +297,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(667, 453);
+            this.btnModify.Location = new System.Drawing.Point(577, 453);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(87, 65);
             this.btnModify.TabIndex = 31;
@@ -308,7 +308,7 @@
             // txtUrl
             // 
             this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrl.Location = new System.Drawing.Point(717, 232);
+            this.txtUrl.Location = new System.Drawing.Point(627, 232);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(187, 25);
             this.txtUrl.TabIndex = 32;
@@ -319,7 +319,7 @@
             this.lblUrl.BackColor = System.Drawing.Color.Transparent;
             this.lblUrl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblUrl.Location = new System.Drawing.Point(660, 234);
+            this.lblUrl.Location = new System.Drawing.Point(570, 234);
             this.lblUrl.Name = "lblUrl";
             this.lblUrl.Size = new System.Drawing.Size(31, 21);
             this.lblUrl.TabIndex = 33;

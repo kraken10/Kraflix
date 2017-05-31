@@ -21,7 +21,7 @@ namespace Krakflix.Vistas
         public RemoveSerie(User user)
         {
             InitializeComponent();
-            user = _user;
+            _user = user;
             cargarGenre();
         }
         private void cargarGenre()
@@ -37,7 +37,6 @@ namespace Krakflix.Vistas
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             cargarSeries();
-
         }
 
         private void listBoxSeries_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,12 +49,12 @@ namespace Krakflix.Vistas
             {
                 if (seriectrl.removeSerie(serieSelected) != false)
                 {
-                    MessageBox.Show("Película Borrada correctamente", "Éxito");
+                    MessageBox.Show("Serie Borrada correctamente", "Éxito");
                     cargarSeries();
                 }
 
                 else
-                    MessageBox.Show("Error al borrar la película", "Error");
+                    MessageBox.Show("Error al borrar la serie", "Error");
             }
 
         }

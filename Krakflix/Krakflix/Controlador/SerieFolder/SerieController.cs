@@ -45,6 +45,7 @@ namespace Krakflix.Controlador
         }
         public bool removeSerie(string serieTitle)
         {
+            krakflixContext = new KrakflixDBEntities3();
             var serieToDelete = krakflixContext.Series.SingleOrDefault(f => f.Title == serieTitle);
             if (serieToDelete != null)
             {

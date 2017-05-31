@@ -143,6 +143,7 @@
             this.Controls.Add(this.cmbTemp);
             this.Controls.Add(this.lblTemporada);
             this.Name = "AddChapter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Capítulos";
             this.ResumeLayout(false);
             this.PerformLayout();

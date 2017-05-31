@@ -183,9 +183,9 @@
             // imgSerie
             // 
             this.imgSerie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgSerie.Location = new System.Drawing.Point(360, 21);
+            this.imgSerie.Location = new System.Drawing.Point(267, 12);
             this.imgSerie.Name = "imgSerie";
-            this.imgSerie.Size = new System.Drawing.Size(187, 218);
+            this.imgSerie.Size = new System.Drawing.Size(329, 218);
             this.imgSerie.TabIndex = 23;
             this.imgSerie.TabStop = false;
             this.imgSerie.Click += new System.EventHandler(this.imgSerie_Click);

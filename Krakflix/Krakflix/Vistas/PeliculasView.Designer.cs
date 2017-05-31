@@ -153,9 +153,8 @@ namespace Krakflix.Vistas
             // 
             this.btnBuscar.Location = new System.Drawing.Point(299, 81);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(47, 37);
             this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscarClick);
             // 

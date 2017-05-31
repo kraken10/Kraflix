@@ -28,10 +28,13 @@ namespace Krakflix.Controlador
         }
         public bool cambiarFoto(User user)
         {
+            krakflixContext = new KrakflixDBEntities3();
             var UserToEdit = krakflixContext.Users.SingleOrDefault(f => f.IdUser == user.IdUser);
+
             if (UserToEdit != null)
             {
                 UserToEdit = user;
+                krakflixContext.Users.AddOrUpdate(UserToEdit);
                 krakflixContext.SaveChanges();
                 krakflixContext.Dispose();
                 return true;

@@ -46,6 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.ClientSize = new System.Drawing.Size(1058, 531);
             this.Controls.Add(this.ShockwaveFlash);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

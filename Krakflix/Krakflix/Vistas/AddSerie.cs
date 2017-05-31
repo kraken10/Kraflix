@@ -58,17 +58,18 @@ namespace Krakflix.Vistas
                 {
                     if (serieController.crearSerie(serie) != true)
                     {
-                        MessageBox.Show("Ha ocurrido un error al añadir la pelicula", "Error");
+                        MessageBox.Show("Ha ocurrido un error al añadir la serie", "Error");
                     }
                     else
                     {
-                        MessageBox.Show("Película añadida", "Éxito");
+                        MessageBox.Show("Serie añadida", "Éxito");
                         txtTemp.Text = "";
                         txtTitle.Text = "";
                         txtRate.Text = "";
                         cmbGenres.Text = "Selecciona";
                         txtYear.Text = "";
                         txtDescription.Text = "";
+                        imgSerie.Image = null;
                     }
                 }
             }

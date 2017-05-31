@@ -39,12 +39,20 @@ namespace Krakflix
 
         private void Principal_MouseEnter(object sender, EventArgs e)
         {
-            WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)PlayerPeli.Ctlcontrols;
-            WMPLib.IWMPControls3 controls2 = (WMPLib.IWMPControls3)PlayerSerie.Ctlcontrols;
-            controls.play();
-            controls2.play();
-            lblVideoPeli.Visible = false;
-            lblVideoSerie.Visible = false;
+            try
+            {
+                WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)PlayerPeli.Ctlcontrols;
+                WMPLib.IWMPControls3 controls2 = (WMPLib.IWMPControls3)PlayerSerie.Ctlcontrols;
+                controls.play();
+                controls2.play();
+                lblVideoPeli.Visible = false;
+                lblVideoSerie.Visible = false;
+            }
+            catch (Exception)
+            {
+                
+            }
+
 
         }
 
@@ -83,7 +91,7 @@ namespace Krakflix
             {
                 imgUser.Image = Image.FromFile(@"C:\Users\Borja\Source\Repos\Kraflix\Krakflix\Krakflix\Resources\defaultPhoto1.png");
             }
-            
+
         }
 
         private void lblVideoSerie_Click(object sender, EventArgs e)
@@ -119,15 +127,15 @@ namespace Krakflix
         private void lblFoto_Click(object sender, EventArgs e)
         {
             userctrl = new UserController();
-            string photo = "";
+            //string photo = "";
             OpenFileDialog dialog = new OpenFileDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                photo = dialog.FileName;
+                _user.photoPath = dialog.FileName;
                 if (userctrl.cambiarFoto(_user))
                 {
                     MessageBox.Show("Foto cambiada con éxito", "Éxito");
-                    imgUser.Image = Image.FromFile(photo);
+                    imgUser.Image = Image.FromFile(_user.photoPath);
                 }
                 else
                     MessageBox.Show("Error al actualizar la foto", "Error");

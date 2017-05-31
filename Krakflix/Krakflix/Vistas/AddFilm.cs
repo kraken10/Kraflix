@@ -74,6 +74,7 @@ namespace Krakflix.Vistas
                         txtYear.Text = "";
                         txtDescription.Text = "";
                         lblCorrecto.Visible = false;
+                        imgPeli.Image = null;
                     }
                 }
             }catch(Exception)

@@ -27,6 +27,7 @@ namespace Krakflix.Vistas
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 photoPath = dialog.FileName;
+                PhotoUser.SizeMode = PictureBoxSizeMode.StretchImage;
                 PhotoUser.Image = Image.FromFile(photoPath);
             }
 

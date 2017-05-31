@@ -43,21 +43,28 @@ namespace Krakflix.Vistas
 
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string filmSelected = listBoxPelis.SelectedItem.ToString();
-            DialogResult result = MessageBox.Show("¿ Estas Seguro de borrar " + filmSelected + " ?",
-                "Borrar", MessageBoxButtons.YesNoCancel);
-            if (result == DialogResult.Yes)
+            try
             {
-                if (filmctr.borrarPeli(filmSelected) != false)
+                string filmSelected = listBoxPelis.SelectedItem.ToString();
+                DialogResult result = MessageBox.Show("¿ Estas Seguro de borrar " + filmSelected + " ?",
+                    "Borrar", MessageBoxButtons.YesNoCancel);
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Película Borrada correctamente", "Éxito");
-                    listBoxPelis.Items.Clear();
+                    if (filmctr.borrarPeli(filmSelected) != false)
+                    {
+                        MessageBox.Show("Película Borrada correctamente", "Éxito");
+                        listBoxPelis.Items.Clear();
+                    }
+
+
+                    else
+                        MessageBox.Show("Error al borrar la película", "Error");
                 }
-
-
-                else
-                    MessageBox.Show("Error al borrar la película", "Error");
             }
+            catch (Exception)
+            {
+            }
+
 
         }
         public void cargarPeliculas()

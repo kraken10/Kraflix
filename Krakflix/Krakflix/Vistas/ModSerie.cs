@@ -177,7 +177,9 @@ namespace Krakflix.Vistas
                         cmbGenres.Text = "Selecciona";
                         txtYear.Text = "";
                         txtDescription.Text = "";
-                        imgSerie.InitialImage = null;
+                        cmbGenreMod.Text = "Selecciona";
+                        imgSerie.Image = null;
+                        listBoxSeries.Items.Clear();
                     }
                 }
             }

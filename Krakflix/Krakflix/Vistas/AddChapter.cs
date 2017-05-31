@@ -47,11 +47,12 @@ namespace Krakflix.Vistas
             {
                 if (chapterCtrl.addChapter(chapter))
                 {
-                    MessageBox.Show("Capítulo añadido con éxito", "Éxito");
+                    cmbTemp.Text = "Selecciona";
                     cargartemp();
                     txtTitle.Text = "";
                     lblCorrecto.Visible = false;
                     pathSelected = false;
+                    MessageBox.Show("Capítulo añadido con éxito", "Éxito");
                 }
                 else
                     MessageBox.Show("Se ha producido un error al añadir el capítulo","Error");

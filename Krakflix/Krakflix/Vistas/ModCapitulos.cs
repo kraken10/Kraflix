@@ -52,8 +52,7 @@ namespace Krakflix.Vistas
                     chapterToEdit.Path = chapterPath;
                 if (!string.IsNullOrEmpty(txtUrl.Text))
                     chapterToEdit.Path = txtUrl.Text;
-
-
+                
                 if (string.IsNullOrEmpty(txtTitle.Text))
                     MessageBox.Show("Faltan campos por rellenar", "Error");
                 else
@@ -134,6 +133,7 @@ namespace Krakflix.Vistas
                         cmbCap.Text = "Selecciona";
                         cmbTemp.Text = "Selecciona";
                         txtUrl.Text = "";
+                        capSelected = string.Empty;
                         int tempSelected = int.Parse(cmbTemp.SelectedItem.ToString());
                         var allChapters = chapRepo.getAll();
                         var chapterBytemp = chapRepo.getById(allChapters, _serie.IdSerie, tempSelected).ToList();

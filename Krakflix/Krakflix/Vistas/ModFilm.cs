@@ -56,6 +56,7 @@ namespace Krakflix.Vistas
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 photoPath = dialog.FileName;
+                imgPeli.SizeMode = PictureBoxSizeMode.StretchImage;
                 imgPeli.Image = Image.FromFile(photoPath);
                 photo = true;
             }
@@ -135,14 +136,18 @@ namespace Krakflix.Vistas
                         cmbGenres.Text = "Selecciona";
                         txtYear.Text = "";
                         txtDescription.Text = "";
+                        cmbGenreMod.Text = "Selecciona";
+                        cmbGenres.Text = "Selecciona";
+                        txtUrl.Text = "";
                         lblCorrecto.Visible = false;
-                        imgPeli.InitialImage = null;
+                        listBoxPelis.Items.Clear();
+                        imgPeli.Image = null;
                     }
                 }
             }
-            catch (Exception q)
+            catch (Exception)
             {
-                MessageBox.Show("Campos Rellenados incorrectamente" + q.Message, "Error");
+                MessageBox.Show("Campos Rellenados incorrectamente", "Error");
             }
         }
 
@@ -153,6 +158,7 @@ namespace Krakflix.Vistas
             txtYear.Text = "";
             txtRate.Text = "";
             txtDescription.Text = "";
+            txtUrl.Text = "";
 
             txtTitle.Text = film.Title;
             txtDuration.Text = film.Duration.ToString();
@@ -161,6 +167,8 @@ namespace Krakflix.Vistas
             cmbGenreMod.Text = getGenre(film.IdGenre);
             txtRate.Text = film.Rate.ToString();
             txtDescription.Text = film.Description;
+            if (film.Path.Contains("http"))
+                txtUrl.Text = film.Path;
             try
             {
                 imgPeli.Image = Image.FromFile(film.PhotoPath);

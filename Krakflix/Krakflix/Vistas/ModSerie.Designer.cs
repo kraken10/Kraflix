@@ -56,7 +56,7 @@
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(519, 277);
+            this.txtDescription.Location = new System.Drawing.Point(435, 274);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(389, 162);
@@ -68,7 +68,7 @@
             this.lblRate2.BackColor = System.Drawing.Color.Transparent;
             this.lblRate2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRate2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblRate2.Location = new System.Drawing.Point(594, 194);
+            this.lblRate2.Location = new System.Drawing.Point(510, 191);
             this.lblRate2.Name = "lblRate2";
             this.lblRate2.Size = new System.Drawing.Size(34, 21);
             this.lblRate2.TabIndex = 42;
@@ -77,7 +77,7 @@
             // txtRate
             // 
             this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(519, 194);
+            this.txtRate.Location = new System.Drawing.Point(435, 191);
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(58, 25);
             this.txtRate.TabIndex = 41;
@@ -85,7 +85,7 @@
             // txtYear
             // 
             this.txtYear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.Location = new System.Drawing.Point(519, 155);
+            this.txtYear.Location = new System.Drawing.Point(435, 152);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(90, 25);
             this.txtYear.TabIndex = 40;
@@ -94,7 +94,7 @@
             // 
             this.cmbGenreMod.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbGenreMod.FormattingEnabled = true;
-            this.cmbGenreMod.Location = new System.Drawing.Point(519, 110);
+            this.cmbGenreMod.Location = new System.Drawing.Point(435, 107);
             this.cmbGenreMod.Name = "cmbGenreMod";
             this.cmbGenreMod.Size = new System.Drawing.Size(187, 29);
             this.cmbGenreMod.TabIndex = 39;
@@ -104,7 +104,7 @@
             // txtTemporadas
             // 
             this.txtTemporadas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemporadas.Location = new System.Drawing.Point(519, 67);
+            this.txtTemporadas.Location = new System.Drawing.Point(435, 64);
             this.txtTemporadas.Name = "txtTemporadas";
             this.txtTemporadas.Size = new System.Drawing.Size(58, 25);
             this.txtTemporadas.TabIndex = 37;
@@ -156,7 +156,7 @@
             // txtTitle
             // 
             this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(519, 23);
+            this.txtTitle.Location = new System.Drawing.Point(435, 20);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(187, 25);
             this.txtTitle.TabIndex = 32;
@@ -164,9 +164,9 @@
             // imgSerie
             // 
             this.imgSerie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgSerie.Location = new System.Drawing.Point(721, 10);
+            this.imgSerie.Location = new System.Drawing.Point(654, 10);
             this.imgSerie.Name = "imgSerie";
-            this.imgSerie.Size = new System.Drawing.Size(187, 205);
+            this.imgSerie.Size = new System.Drawing.Size(281, 205);
             this.imgSerie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgSerie.TabIndex = 31;
             this.imgSerie.TabStop = false;
@@ -178,7 +178,7 @@
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblDescription.Location = new System.Drawing.Point(424, 277);
+            this.lblDescription.Location = new System.Drawing.Point(340, 274);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(91, 21);
             this.lblDescription.TabIndex = 52;
@@ -190,7 +190,7 @@
             this.lblRate.BackColor = System.Drawing.Color.Transparent;
             this.lblRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblRate.Location = new System.Drawing.Point(416, 194);
+            this.lblRate.Location = new System.Drawing.Point(332, 191);
             this.lblRate.Name = "lblRate";
             this.lblRate.Size = new System.Drawing.Size(88, 21);
             this.lblRate.TabIndex = 50;
@@ -202,7 +202,7 @@
             this.lblYear.BackColor = System.Drawing.Color.Transparent;
             this.lblYear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblYear.Location = new System.Drawing.Point(466, 155);
+            this.lblYear.Location = new System.Drawing.Point(382, 152);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(38, 21);
             this.lblYear.TabIndex = 49;
@@ -214,7 +214,7 @@
             this.lblGenreMod.BackColor = System.Drawing.Color.Transparent;
             this.lblGenreMod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenreMod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblGenreMod.Location = new System.Drawing.Point(443, 113);
+            this.lblGenreMod.Location = new System.Drawing.Point(359, 110);
             this.lblGenreMod.Name = "lblGenreMod";
             this.lblGenreMod.Size = new System.Drawing.Size(61, 21);
             this.lblGenreMod.TabIndex = 48;
@@ -226,7 +226,7 @@
             this.lblTemp.BackColor = System.Drawing.Color.Transparent;
             this.lblTemp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblTemp.Location = new System.Drawing.Point(416, 69);
+            this.lblTemp.Location = new System.Drawing.Point(332, 66);
             this.lblTemp.Name = "lblTemp";
             this.lblTemp.Size = new System.Drawing.Size(94, 21);
             this.lblTemp.TabIndex = 47;
@@ -238,7 +238,7 @@
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblTitulo.Location = new System.Drawing.Point(455, 23);
+            this.lblTitulo.Location = new System.Drawing.Point(371, 20);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(49, 21);
             this.lblTitulo.TabIndex = 46;
@@ -246,7 +246,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(677, 453);
+            this.btnModify.Location = new System.Drawing.Point(593, 450);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(87, 65);
             this.btnModify.TabIndex = 53;
@@ -257,7 +257,7 @@
             // btnCapitulosMod
             // 
             this.btnCapitulosMod.Enabled = false;
-            this.btnCapitulosMod.Location = new System.Drawing.Point(616, 237);
+            this.btnCapitulosMod.Location = new System.Drawing.Point(532, 234);
             this.btnCapitulosMod.Name = "btnCapitulosMod";
             this.btnCapitulosMod.Size = new System.Drawing.Size(71, 23);
             this.btnCapitulosMod.TabIndex = 54;
@@ -271,7 +271,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(422, 236);
+            this.label1.Location = new System.Drawing.Point(338, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 56;
@@ -280,7 +280,7 @@
             // btnAddChap
             // 
             this.btnAddChap.Enabled = false;
-            this.btnAddChap.Location = new System.Drawing.Point(519, 237);
+            this.btnAddChap.Location = new System.Drawing.Point(435, 234);
             this.btnAddChap.Name = "btnAddChap";
             this.btnAddChap.Size = new System.Drawing.Size(71, 23);
             this.btnAddChap.TabIndex = 57;
