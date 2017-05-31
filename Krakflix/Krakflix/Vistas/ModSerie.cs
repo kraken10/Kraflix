@@ -90,11 +90,7 @@ namespace Krakflix.Vistas
             }
             return "";
         }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            cargarSeries(_user);
-        }
+        
         public void cargarSeries(User user)
         {
             serieRepo = new SerieRepository();
@@ -193,6 +189,16 @@ namespace Krakflix.Vistas
         {
             AddChapter addChapter = new AddChapter(serieSelected);
             addChapter.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cargarSeries(_user);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

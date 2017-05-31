@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModSerie));
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblRate2 = new System.Windows.Forms.Label();
             this.txtRate = new System.Windows.Forms.TextBox();
@@ -35,7 +36,6 @@
             this.cmbGenreMod = new System.Windows.Forms.ComboBox();
             this.txtTemporadas = new System.Windows.Forms.TextBox();
             this.listBoxSeries = new System.Windows.Forms.ListBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.lblGenre = new System.Windows.Forms.Label();
             this.cmbGenres = new System.Windows.Forms.ComboBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@
             this.btnCapitulosMod = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddChap = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgSerie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,16 +120,6 @@
             this.listBoxSeries.Size = new System.Drawing.Size(253, 277);
             this.listBoxSeries.TabIndex = 36;
             this.listBoxSeries.SelectedIndexChanged += new System.EventHandler(this.listBoxSeries_SelectedIndexChanged);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(243, 69);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscar.TabIndex = 35;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblGenre
             // 
@@ -288,6 +279,16 @@
             this.btnAddChap.UseVisualStyleBackColor = true;
             this.btnAddChap.Click += new System.EventHandler(this.btnAddChap_Click_1);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(246, 64);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(39, 35);
+            this.btnBuscar.TabIndex = 58;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // ModSerie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,6 +296,7 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(947, 537);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAddChap);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCapitulosMod);
@@ -312,7 +314,6 @@
             this.Controls.Add(this.cmbGenreMod);
             this.Controls.Add(this.txtTemporadas);
             this.Controls.Add(this.listBoxSeries);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblGenre);
             this.Controls.Add(this.cmbGenres);
             this.Controls.Add(this.txtTitle);
@@ -336,7 +337,6 @@
         private System.Windows.Forms.ComboBox cmbGenreMod;
         private System.Windows.Forms.TextBox txtTemporadas;
         private System.Windows.Forms.ListBox listBoxSeries;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblGenre;
         private System.Windows.Forms.ComboBox cmbGenres;
         private System.Windows.Forms.TextBox txtTitle;
@@ -351,5 +351,6 @@
         private System.Windows.Forms.Button btnCapitulosMod;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddChap;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

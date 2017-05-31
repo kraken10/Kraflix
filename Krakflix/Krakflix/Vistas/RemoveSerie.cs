@@ -34,11 +34,7 @@ namespace Krakflix.Vistas
                 cmbGenres.Items.Add(name.Description);
             }
         }
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            cargarSeries();
-        }
-
+        
         private void listBoxSeries_SelectedIndexChanged(object sender, EventArgs e)
         {
             string serieSelected = listBoxSeries.SelectedItem.ToString();
@@ -88,6 +84,11 @@ namespace Krakflix.Vistas
                     return 5;
             }
             return -1;
+        }
+
+        private void btnBuscarSerie_Click(object sender, EventArgs e)
+        {
+            cargarSeries();
         }
     }
 }

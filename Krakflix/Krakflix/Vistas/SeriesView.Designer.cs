@@ -41,18 +41,20 @@ namespace Krakflix.Vistas
             this.lblGenreSerie = new System.Windows.Forms.Label();
             this.btnPlaySerie = new System.Windows.Forms.Button();
             this.listBoxSeries = new System.Windows.Forms.ListBox();
-            this.btnBuscarSerie = new System.Windows.Forms.Button();
             this.lblTituloSerieDescripcion = new System.Windows.Forms.Label();
             this.lblcap = new System.Windows.Forms.Label();
             this.cmbCaps = new System.Windows.Forms.ComboBox();
             this.lblTemp = new System.Windows.Forms.Label();
             this.cmbTemp = new System.Windows.Forms.ComboBox();
             this.lblDescripcionSerie = new System.Windows.Forms.Label();
+            this.btnBuscarSerie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgSerie)).BeginInit();
             this.SuspendLayout();
             // 
             // imgSerie
             // 
+            this.imgSerie.BackgroundImage = global::Krakflix.Properties.Resources.NoPhoto;
+            this.imgSerie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.imgSerie.Location = new System.Drawing.Point(409, 78);
             this.imgSerie.Name = "imgSerie";
             this.imgSerie.Size = new System.Drawing.Size(352, 223);
@@ -133,11 +135,12 @@ namespace Krakflix.Vistas
             // 
             // btnPlaySerie
             // 
-            this.btnPlaySerie.Location = new System.Drawing.Point(1121, 139);
+            this.btnPlaySerie.Image = global::Krakflix.Properties.Resources.playy;
+            this.btnPlaySerie.Location = new System.Drawing.Point(1121, 107);
             this.btnPlaySerie.Name = "btnPlaySerie";
-            this.btnPlaySerie.Size = new System.Drawing.Size(111, 75);
+            this.btnPlaySerie.Size = new System.Drawing.Size(110, 107);
             this.btnPlaySerie.TabIndex = 9;
-            this.btnPlaySerie.Text = " Play";
+            this.btnPlaySerie.Text = " ";
             this.btnPlaySerie.UseVisualStyleBackColor = true;
             this.btnPlaySerie.Click += new System.EventHandler(this.btnPlay_Click);
             // 
@@ -151,16 +154,6 @@ namespace Krakflix.Vistas
             this.listBoxSeries.Size = new System.Drawing.Size(253, 340);
             this.listBoxSeries.TabIndex = 11;
             this.listBoxSeries.DoubleClick += new System.EventHandler(this.listBoxSeries_DoubleClick);
-            // 
-            // btnBuscarSerie
-            // 
-            this.btnBuscarSerie.Location = new System.Drawing.Point(299, 81);
-            this.btnBuscarSerie.Name = "btnBuscarSerie";
-            this.btnBuscarSerie.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarSerie.TabIndex = 12;
-            this.btnBuscarSerie.Text = "Buscar";
-            this.btnBuscarSerie.UseVisualStyleBackColor = true;
-            this.btnBuscarSerie.Click += new System.EventHandler(this.btnBuscarSerieClick);
             // 
             // lblTituloSerieDescripcion
             // 
@@ -233,19 +226,29 @@ namespace Krakflix.Vistas
             this.lblDescripcionSerie.Size = new System.Drawing.Size(735, 380);
             this.lblDescripcionSerie.TabIndex = 14;
             // 
+            // btnBuscarSerie
+            // 
+            this.btnBuscarSerie.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarSerie.Image")));
+            this.btnBuscarSerie.Location = new System.Drawing.Point(281, 76);
+            this.btnBuscarSerie.Name = "btnBuscarSerie";
+            this.btnBuscarSerie.Size = new System.Drawing.Size(39, 35);
+            this.btnBuscarSerie.TabIndex = 35;
+            this.btnBuscarSerie.UseVisualStyleBackColor = true;
+            this.btnBuscarSerie.Click += new System.EventHandler(this.btnBuscarSerie_Click);
+            // 
             // SeriesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.btnBuscarSerie);
             this.Controls.Add(this.cmbTemp);
             this.Controls.Add(this.lblTemp);
             this.Controls.Add(this.cmbCaps);
             this.Controls.Add(this.lblcap);
             this.Controls.Add(this.lblDescripcionSerie);
             this.Controls.Add(this.lblTituloSerieDescripcion);
-            this.Controls.Add(this.btnBuscarSerie);
             this.Controls.Add(this.listBoxSeries);
             this.Controls.Add(this.btnPlaySerie);
             this.Controls.Add(this.lblGenreSerie);
@@ -279,12 +282,12 @@ namespace Krakflix.Vistas
         private System.Windows.Forms.Label lblGenreSerie;
         private System.Windows.Forms.Button btnPlaySerie;
         private System.Windows.Forms.ListBox listBoxSeries;
-        private System.Windows.Forms.Button btnBuscarSerie;
         private System.Windows.Forms.Label lblTituloSerieDescripcion;
         private Label lblcap;
         private ComboBox cmbCaps;
         private Label lblTemp;
         private ComboBox cmbTemp;
         private Label lblDescripcionSerie;
+        private Button btnBuscarSerie;
     }
 }

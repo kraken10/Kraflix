@@ -130,12 +130,14 @@ namespace Krakflix.Vistas
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(1219, 133);
+            this.btnPlay.ForeColor = System.Drawing.Color.Transparent;
+            this.btnPlay.Image = global::Krakflix.Properties.Resources.playy;
+            this.btnPlay.Location = new System.Drawing.Point(1125, 123);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(111, 75);
+            this.btnPlay.Size = new System.Drawing.Size(111, 110);
             this.btnPlay.TabIndex = 9;
-            this.btnPlay.Text = " Play";
-            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Text = " ";
+            this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // listBoxPelis
@@ -151,9 +153,10 @@ namespace Krakflix.Vistas
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(299, 81);
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(281, 76);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(47, 37);
+            this.btnBuscar.Size = new System.Drawing.Size(39, 35);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscarClick);

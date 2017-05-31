@@ -53,12 +53,7 @@ namespace Krakflix.Vistas
             }
 
         }
-
-        private void btnBuscarSerieClick(object sender, EventArgs e)
-        {
-            cargarSeries(_user);
-        }
-
+        
         private void listBoxSeries_DoubleClick(object sender, EventArgs e)
         {
             serieSelected = listBoxSeries.SelectedItem.ToString();
@@ -156,6 +151,11 @@ namespace Krakflix.Vistas
         {
             int tempSelected = (int)cmbTemp.SelectedItem;
             cargarCap(serieSelected, tempSelected);
+        }
+
+        private void btnBuscarSerie_Click(object sender, EventArgs e)
+        {
+            cargarSeries(_user);
         }
     }
 }

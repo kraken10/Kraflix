@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModFilm));
             this.imgPeli = new System.Windows.Forms.PictureBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.cmbGenres = new System.Windows.Forms.ComboBox();
             this.lblGenre = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.listBoxPelis = new System.Windows.Forms.ListBox();
             this.lblDuration = new System.Windows.Forms.Label();
             this.txtDuration = new System.Windows.Forms.TextBox();
@@ -53,6 +53,7 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblUrl = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgPeli)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,16 +110,6 @@
             this.lblGenre.Size = new System.Drawing.Size(61, 21);
             this.lblGenre.TabIndex = 13;
             this.lblGenre.Text = "Género";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(239, 71);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 14;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // listBoxPelis
             // 
@@ -325,6 +316,16 @@
             this.lblUrl.TabIndex = 33;
             this.lblUrl.Text = "Url";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(249, 65);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(39, 35);
+            this.btnBuscar.TabIndex = 34;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // ModFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +333,7 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(916, 530);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.btnModify);
@@ -351,7 +353,6 @@
             this.Controls.Add(this.txtDuration);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.listBoxPelis);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblGenre);
             this.Controls.Add(this.cmbGenres);
             this.Controls.Add(this.txtTitle);
@@ -374,7 +375,6 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.ComboBox cmbGenres;
         private System.Windows.Forms.Label lblGenre;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ListBox listBoxPelis;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.TextBox txtDuration;
@@ -394,5 +394,6 @@
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblUrl;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

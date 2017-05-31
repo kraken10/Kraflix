@@ -35,12 +35,7 @@ namespace Krakflix.Vistas
                 cmbGenres.Items.Add(name.Description);
             }
         }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            cargarPeliculas();
-        }
-
+        
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -97,6 +92,11 @@ namespace Krakflix.Vistas
                     return 5;
             }
             return -1;
+        }
+
+        private void btnBuscarFilm(object sender, EventArgs e)
+        {
+            cargarPeliculas();
         }
     }
 }

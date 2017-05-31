@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBuscar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoveFilm));
             this.lblGenre = new System.Windows.Forms.Label();
             this.cmbGenres = new System.Windows.Forms.ComboBox();
             this.listBoxPelis = new System.Windows.Forms.ListBox();
+            this.btnBuscarSerie = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(442, 36);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 15;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblGenre
             // 
@@ -78,6 +69,16 @@
             this.listBoxPelis.TabIndex = 16;
             this.listBoxPelis.SelectedIndexChanged += new System.EventHandler(this.listBoxPelis_SelectedIndexChanged);
             // 
+            // btnBuscarSerie
+            // 
+            this.btnBuscarSerie.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarSerie.Image")));
+            this.btnBuscarSerie.Location = new System.Drawing.Point(434, 31);
+            this.btnBuscarSerie.Name = "btnBuscarSerie";
+            this.btnBuscarSerie.Size = new System.Drawing.Size(39, 35);
+            this.btnBuscarSerie.TabIndex = 36;
+            this.btnBuscarSerie.UseVisualStyleBackColor = true;
+            this.btnBuscarSerie.Click += new System.EventHandler(this.btnBuscarFilm);
+            // 
             // RemoveFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,8 +86,8 @@
             this.BackgroundImage = global::Krakflix.Properties.Resources.backk;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(691, 437);
+            this.Controls.Add(this.btnBuscarSerie);
             this.Controls.Add(this.listBoxPelis);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblGenre);
             this.Controls.Add(this.cmbGenres);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -99,10 +100,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblGenre;
         private System.Windows.Forms.ComboBox cmbGenres;
         private System.Windows.Forms.ListBox listBoxPelis;
+        private System.Windows.Forms.Button btnBuscarSerie;
     }
 }

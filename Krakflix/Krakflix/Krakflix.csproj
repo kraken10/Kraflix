@@ -323,6 +323,7 @@
     <Content Include="Resources\backk.jpg" />
     <None Include="Resources\search.png" />
     <None Include="Resources\NoPhoto.jpg" />
+    <None Include="Resources\playy.png" />
     <Content Include="Resources\search.jpg" />
     <None Include="Resources\backk1.jpg" />
     <Content Include="Resources\filmIntro.mp4" />
