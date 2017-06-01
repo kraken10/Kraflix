@@ -27,6 +27,7 @@ namespace Krakflix.Vistas
         }
         private void cargarGenre()
         {
+            //cargamos los generos en el combo
             var genresList = genres.GetAll().ToList();
 
             foreach (var name in genresList)
@@ -41,6 +42,7 @@ namespace Krakflix.Vistas
             {
                 serieController = new SerieController();
                 serie = new Serie();
+                //vamos haciendo la comprobación de los parametros y si estan vacios le asignamos lo correspondiente
                 serie.Title = txtTitle.Text.Trim();
                 serie.NumTemp = string.IsNullOrEmpty(txtTemp.Text.Trim()) ? 0 : int.Parse(txtTemp.Text);
                 serie.IdGenre = cmbGenres.SelectedItem == null ? -1 : getGenre(cmbGenres.SelectedItem.ToString());
@@ -49,6 +51,7 @@ namespace Krakflix.Vistas
                 serie.Description = txtDescription.Text.Trim();
                 serie.PhotoPath = photo == true ? photoPath.ToString() : string.Empty;
                 serie.IdUser = _user.IdUser;
+                //comprobamos
                 if (string.IsNullOrEmpty(serie.Title) || serie.NumTemp == 0 || serie.Year == 0 || serie.Rate == 0 || serie.IdGenre == -1
                     || string.IsNullOrEmpty(serie.Description))
                 {
@@ -56,12 +59,14 @@ namespace Krakflix.Vistas
                 }
                 else
                 {
+                    //si todo va bien llamamos al metodo de agregar la serie
                     if (serieController.crearSerie(serie) != true)
                     {
                         MessageBox.Show("Ha ocurrido un error al añadir la serie", "Error");
                     }
                     else
                     {
+                        //y reiniciamos campos y parametros
                         MessageBox.Show("Serie añadida", "Éxito");
                         txtTemp.Text = "";
                         txtTitle.Text = "";
@@ -78,6 +83,7 @@ namespace Krakflix.Vistas
                 MessageBox.Show("Campos Rellenados incorrectamente", "Error");
             }
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)
@@ -98,6 +104,7 @@ namespace Krakflix.Vistas
 
         private void imgSerie_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)

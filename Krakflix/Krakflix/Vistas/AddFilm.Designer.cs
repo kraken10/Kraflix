@@ -56,9 +56,9 @@
             // imgPeli
             // 
             this.imgPeli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgPeli.Location = new System.Drawing.Point(366, 12);
+            this.imgPeli.Location = new System.Drawing.Point(287, 12);
             this.imgPeli.Name = "imgPeli";
-            this.imgPeli.Size = new System.Drawing.Size(187, 218);
+            this.imgPeli.Size = new System.Drawing.Size(354, 218);
             this.imgPeli.TabIndex = 0;
             this.imgPeli.TabStop = false;
             this.imgPeli.Click += new System.EventHandler(this.imgPeli_Click);

@@ -20,6 +20,7 @@ namespace Krakflix.Vistas
 
         private void VideoOnline_Load(object sender, EventArgs e)
         {
+            //sustituye una parte de la url de youtube para poder reproducirla en la aplicacion
             string videoUrl = _url.Replace("watch?v=", "v/");
             ShockwaveFlash.Movie = videoUrl;
             ShockwaveFlash.Play();

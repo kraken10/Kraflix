@@ -27,6 +27,7 @@ namespace Krakflix.Vistas
 
         private void cargarGenre()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -38,6 +39,7 @@ namespace Krakflix.Vistas
         
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //preguntamos al usuario si esta seguro de borrar la pelicula
             try
             {
                 string filmSelected = listBoxPelis.SelectedItem.ToString();
@@ -45,6 +47,7 @@ namespace Krakflix.Vistas
                     "Borrar", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
+                    //llamamos al metodo de borrar.
                     if (filmctr.borrarPeli(filmSelected) != false)
                     {
                         MessageBox.Show("Película Borrada correctamente", "Éxito");
@@ -56,15 +59,13 @@ namespace Krakflix.Vistas
                         MessageBox.Show("Error al borrar la película", "Error");
                 }
             }
-            catch (Exception)
-            {
-            }
+            catch (Exception){ }
 
 
         }
         public void cargarPeliculas()
         {
-
+            //cargamos las peliculas en el comboBox
             string genre = cmbGenres.SelectedItem != null ? cmbGenres.SelectedItem.ToString() : string.Empty;
             int genreInt = getGenre(genre);
             var allFilms = filmsRepo.GetAll();
@@ -76,6 +77,7 @@ namespace Krakflix.Vistas
                 listBoxPelis.Items.Add(film.Title);
             }
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)

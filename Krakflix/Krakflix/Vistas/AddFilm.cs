@@ -29,6 +29,7 @@ namespace Krakflix.Vistas
         }
         private void cargarGenres()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -44,6 +45,7 @@ namespace Krakflix.Vistas
             {
                 filmcontroller = new FilmController();
                 film = new Film();
+                //vamos haciendo la comprobación de los parametros y si estan vacios le asignamos lo correspondiente
                 film.Title = txtTitle.Text.Trim();
                 film.Duration = string.IsNullOrEmpty(txtDuration.Text.Trim()) ? 0 : int.Parse(txtDuration.Text);
                 film.IdGenre = cmbGenres.SelectedItem == null ? -1 : getGenre(cmbGenres.SelectedItem.ToString());
@@ -55,6 +57,7 @@ namespace Krakflix.Vistas
                 if (!string.IsNullOrEmpty(txtUrl.Text))
                     film.Path = txtUrl.Text;
                 film.IdUser = _user.IdUser;
+                //comprobamos
                 if (string.IsNullOrEmpty(film.Title) || film.Duration == 0 || film.Year == 0 || film.Rate == 0 || film.IdGenre == -1
                     || string.IsNullOrEmpty(film.Description) || (pathSelected == false && string.IsNullOrEmpty(txtUrl.Text)))
                 {
@@ -62,13 +65,14 @@ namespace Krakflix.Vistas
                 }
                 else
                 {
+                    //si todo va bien llamamos al metodo de agregar la pelicula
                     if (filmcontroller.agregarPeli(film) != true)
                     {
                         MessageBox.Show("Ha ocurrido un error al añadir la pelicula", "Error");
                     }
                     else
                     {
-                        MessageBox.Show("Película añadida", "Éxito");
+                        //y reiniciamos campos y parametros
                         txtDuration.Text = "";
                         txtTitle.Text = "";
                         txtRate.Text = "";
@@ -78,6 +82,7 @@ namespace Krakflix.Vistas
                         txtUrl.Text = "";
                         lblCorrecto.Visible = false;
                         imgPeli.Image = null;
+                        MessageBox.Show("Película añadida", "Éxito");
                     }
                 }
             }catch(Exception)
@@ -89,6 +94,7 @@ namespace Krakflix.Vistas
 
         private void imgPeli_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -100,6 +106,7 @@ namespace Krakflix.Vistas
                 
             }
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)
@@ -120,6 +127,7 @@ namespace Krakflix.Vistas
         
         private void btnRuta_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Video Files | *.avi *.mkv | All Files | *.*";
 

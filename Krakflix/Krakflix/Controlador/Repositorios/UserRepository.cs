@@ -10,7 +10,7 @@ namespace Krakflix.Controlador
     public class UserRepository : IUserRepository
     {
         private KrakflixDBEntities3 krakflixContext;
-
+        //devuelve todos los usuarios
         public IQueryable<User> GetAll()
         {
             krakflixContext = new KrakflixDBEntities3();
@@ -21,6 +21,7 @@ namespace Krakflix.Controlador
 
             return query;
         }
+        //devuelve el usuario pasandole id
         public IQueryable<User> GetbyId(int user)
         {
             krakflixContext = new KrakflixDBEntities3();

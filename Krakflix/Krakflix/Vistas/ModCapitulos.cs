@@ -29,6 +29,7 @@ namespace Krakflix.Vistas
         }
         private void CargaTemp()
         {
+            //cargamos las temporadas de la serie
             var allseries = serieRepo.getAll();
             int serieTemp = serieRepo.getTempsById(allseries, _serie.IdSerie);
             cmbTemp.Items.Clear();
@@ -44,6 +45,7 @@ namespace Krakflix.Vistas
             {
                 var allChapters = chapRepo.getAll();
                 Chapter chapterToEdit = chapRepo.getByTitle(allChapters, cmbCap.SelectedItem.ToString()).FirstOrDefault();
+                //vamos haciendo la comprobación de los parametros y si estan vacios le asignamos lo correspondiente
                 if (txtTitle.Text != chapterToEdit.NombreCap)
                     chapterToEdit.NombreCap = txtTitle.Text;
                 if (int.Parse(cmbTempMod.SelectedItem.ToString()) != chapterToEdit.Temp)
@@ -57,10 +59,12 @@ namespace Krakflix.Vistas
                     MessageBox.Show("Faltan campos por rellenar", "Error");
                 else
                 {
+                    //si todo va bien llamamos al metodo de modificar el capitulo
                     if (!chapCtr.modififyChapter(chapterToEdit))
                         MessageBox.Show("Ha ocurrido un error al modificar el capítulo", "Error");
                     else
                     {
+                        //y reiniciamos campos y parametros
                         txtTitle.Text = "";
                         cmbTempMod.Text = "Selecciona";
                         cmbCap.Text = "Selecciona";
@@ -82,6 +86,7 @@ namespace Krakflix.Vistas
 
         private void btnRuta_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Video Files | *.avi *.mkv | All Files | *.*";
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -94,12 +99,14 @@ namespace Krakflix.Vistas
 
         private void cmbTemp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //cuando seleccionamos un item del combo reiniciamos campos para mostrar el capitulo que sea corresponiente
             int tempSelected = int.Parse(cmbTemp.SelectedItem.ToString());
             var allChapters = chapRepo.getAll();
             var chapterBytemp = chapRepo.getById(allChapters, _serie.IdSerie, tempSelected).ToList();
             cmbCap.Items.Clear();
             cmbCap.Text = "Selecciona";
             cmbTempMod.Text = "Selecciona";
+            //añadimos los capitulos al combo
             foreach (var chap in chapterBytemp)
             {
                 cmbCap.Items.Add(chap.NombreCap);
@@ -109,6 +116,7 @@ namespace Krakflix.Vistas
 
         private void cmbCap_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //cuando seleccionamos un capitulo del combo se muestra en los textBox
             string capSelected = cmbCap.SelectedItem.ToString();
             int tempSelected = int.Parse(cmbTemp.SelectedItem.ToString());
             txtTitle.Text = capSelected;
@@ -120,13 +128,16 @@ namespace Krakflix.Vistas
         {
             try
             {
+                //preguntamos si realmente desea borrar el capitulo.
                 string capSelected = cmbCap.SelectedItem.ToString();
                 DialogResult result = MessageBox.Show("¿ Estas Seguro de borrar " + capSelected + " ?",
                     "Borrar", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
+                    //si el resultado es si, llamamos al metodo para borrarlo
                     if (chapCtr.removeChapter(capSelected) != false)
                     {
+                        //y reiniciamos campos y parametros
                         MessageBox.Show("Capítulo borrado correctamente", "Éxito");
                         txtTitle.Text = "";
                         cmbTempMod.Text = "Selecciona";

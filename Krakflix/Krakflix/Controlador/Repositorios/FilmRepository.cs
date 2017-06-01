@@ -10,6 +10,7 @@ namespace Krakflix.Controlador.Repositorios
     public class FilmRepository : IFilmRepository
     {
         private KrakflixDBEntities3 krakflixContext;
+        //metodo que devuelve todas las peliculas
         public IQueryable<Film> GetAll()
         {
             krakflixContext = new KrakflixDBEntities3();
@@ -20,14 +21,14 @@ namespace Krakflix.Controlador.Repositorios
 
             return query;
         }
-
+        //metodo que devuelve las peliculas pasandole el titulo
         public IQueryable<Film> GetBytitle(IQueryable<Film> films, string filmSelected)
         {
             var query = films.Where(x => x.Title == filmSelected);
 
             return query;
         }
-
+        //metodo que devuelve las peliculas indicandole el id user.
         public IQueryable<Film> GetByUser(IQueryable<Film> films, int genre, User user)
         {
             var query = films.Where(x => x.IdUser == user.IdUser);

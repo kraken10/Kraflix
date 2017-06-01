@@ -32,6 +32,7 @@ namespace Krakflix.Vistas
         }
         private void cargarGenres()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -43,12 +44,14 @@ namespace Krakflix.Vistas
         }
         private void btnCapitulos_Click(object sender, EventArgs e)
         {
+            //muestra la ventana de editar capitulos
             ModCapitulos modCap = new ModCapitulos(serietoShow);
             modCap.Show();
         }
 
         private void imgPeli_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -57,6 +60,7 @@ namespace Krakflix.Vistas
                 photo = true;
             }
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)
@@ -74,6 +78,7 @@ namespace Krakflix.Vistas
             }
             return -1;
         }
+        //metodo que devuelve el nombre del genero para hacer la query en BDD
         public string getGenre(int genre)
         {
             switch (genre)
@@ -94,6 +99,7 @@ namespace Krakflix.Vistas
         
         public void cargarSeries(User user)
         {
+            //metodo que carga las series en el listbox
             serieRepo = new SerieRepository();
             string genre = cmbGenres.SelectedItem != null ? cmbGenres.SelectedItem.ToString() : string.Empty;
             int genreInt = getGenre(genre);
@@ -109,9 +115,11 @@ namespace Krakflix.Vistas
         }
         private void listBoxSeries_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //cuando una serie es seleccionada en el listbox se muestra en la vista
             serieSelected = listBoxSeries.SelectedItem.ToString();
             var allSeries = serieRepo.getAll();
             serietoShow = serieRepo.GetBytitle(allSeries, serieSelected).FirstOrDefault();
+            //metodo que muestra la serie en la vista
             showSerie(serietoShow);
             btnCapitulosMod.Enabled = true;
             btnAddChap.Enabled = true;
@@ -136,6 +144,7 @@ namespace Krakflix.Vistas
                 imgSerie.Image = bitmap;
             }else
                 imgSerie.Image = Image.FromFile(serie.PhotoPath);
+
             serieSelected = serie.IdSerie;
         }
 
@@ -145,7 +154,8 @@ namespace Krakflix.Vistas
             {
                 var allSeries = serieRepo.getAll();
                 Serie serieToedit = serieRepo.GetById(allSeries, serieSelected).FirstOrDefault();
-
+                //recogemos la serie a modificar y vamos comparando si los datos introducidos son distintos a los que tiene.
+                //en ese caso se los asignamos
                 if (serieToedit.Title != txtTitle.Text)
                     serieToedit.Title = txtTitle.Text;
                 if (serieToedit.NumTemp.ToString() != txtTemporadas.Text)
@@ -158,7 +168,7 @@ namespace Krakflix.Vistas
                     serieToedit.Description = txtDescription.Text;
                 if (photo == true)
                     serieToedit.PhotoPath = photoPath;
-
+                //comprobamos campos
                 if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtTemporadas.Text) || string.IsNullOrEmpty(txtYear.Text) || string.IsNullOrEmpty(txtRate.Text) || getGenre(cmbGenreMod.SelectedItem.ToString()) == -1
                     || string.IsNullOrEmpty(txtDescription.Text))
                 {
@@ -166,12 +176,14 @@ namespace Krakflix.Vistas
                 }
                 else
                 {
+                    //si todo ha salido bien llamamos al metodo para modificar
                     if (serieCtr.modificarSerie(serieToedit) != true)
                     {
                         MessageBox.Show("Ha ocurrido un error al modificar la serie", "Error");
                     }
                     else
                     {
+                        //reiniciamos campos y valores.
                         MessageBox.Show("Serie modificada", "Éxito");
                         txtTemporadas.Text = "";
                         txtTitle.Text = "";
@@ -193,12 +205,14 @@ namespace Krakflix.Vistas
         
         private void btnAddChap_Click_1(object sender, EventArgs e)
         {
+            //mostramos la vista de añadir capitulo
             AddChapter addChapter = new AddChapter(serieSelected);
             addChapter.Show();
         }
         
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //carga las series en el listBox al pulsar el boton de buscar.
             cargarSeries(_user);
         }
     }

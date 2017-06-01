@@ -20,6 +20,7 @@ namespace Krakflix.Vistas
         private string chapterPath = "";
         private bool pathSelected = false;
         private Chapter chapter;
+        
         public AddChapter(string serieId)
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace Krakflix.Vistas
         {
             var allSeries = serieRepo.getAll();
             int tempBytitle = serieRepo.getTempsById(allSeries, _serieId);
+            //cuando tenemos el numero de temporadas rellenamos el comboBox
             cmbTemp.Items.Clear();
             for (int i = 0; i < tempBytitle; i++)
             {
@@ -40,22 +42,28 @@ namespace Krakflix.Vistas
         {
             chapter = new Chapter();
             chapter.IdSerie = _serieId;
+            //comprobamos los txtBox para insertar
             chapter.Temp = cmbTemp.SelectedItem == null ? 0 : int.Parse(cmbTemp.SelectedItem.ToString());
             chapter.NombreCap = txtTitle.Text.Trim();
+
             if (!pathSelected)
                 chapter.Path = txtUrl.Text;
             else
                 chapter.Path = chapterPath;
+            
             if (chapter.Temp != 0 || !string.IsNullOrEmpty(txtTitle.Text) || pathSelected || !string.IsNullOrEmpty(txtUrl.Text))
             {
+                //si todo es correcto se llama al metodo de agregar capitulo
                 if (chapterCtrl.addChapter(chapter))
                 {
+                    //y reiniciamos parametros
                     cmbTemp.Text = "Selecciona";
                     cargartemp();
                     txtTitle.Text = "";
                     txtUrl.Text = "";
                     lblCorrecto.Visible = false;
                     pathSelected = false;
+                    //mostramos al usuario un alert de que todo ha salido bien
                     MessageBox.Show("Capítulo añadido con éxito", "Éxito");
                 }
                 else
@@ -68,9 +76,9 @@ namespace Krakflix.Vistas
 
         private void btnRuta_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Video Files | *.avi *.mkv | All Files | *.*";
-
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 chapterPath = dialog.FileName;

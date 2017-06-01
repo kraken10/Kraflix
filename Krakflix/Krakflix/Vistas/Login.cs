@@ -27,10 +27,12 @@ namespace Krakflix
 
         private void btnloginClick(object sender, EventArgs e)
         {
+            //el metodo verificar user nos devuelve el usuario logado
             User UserCorrecto = lgcontrol.verificarUser(txtUser.Text, TxtPass.Text);
 
             if (UserCorrecto != null)
             {
+                //si el usuario es correcto se nos cierra esta ventana y se abre la ventana principal
                 princ = new Principal(UserCorrecto);
                 Hide();
                 princ.Closed += (s, args) => this.Close();
@@ -39,7 +41,7 @@ namespace Krakflix
             else
                 MessageBox.Show("Datos introducidos incorrectos", "Error");
         }
-
+        //evento del link que abre la ventana de registro.
         private void linkRegister(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();

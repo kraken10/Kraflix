@@ -12,6 +12,7 @@ namespace Krakflix.Controlador
     {
         private KrakflixDBEntities3 krakflixContext;
 
+        //devuelve todos los generos
         public IQueryable<Genre> GetAll()
         {
             krakflixContext = new KrakflixDBEntities3();

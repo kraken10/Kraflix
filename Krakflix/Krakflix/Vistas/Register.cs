@@ -22,6 +22,7 @@ namespace Krakflix.Vistas
 
         private void photoClick(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -38,10 +39,12 @@ namespace Krakflix.Vistas
             string user = txtUser.Text.Trim();
             string pass = txtPass.Text.Trim();
             string pass2 = txtPass2.Text.Trim();
+            //comprobamos campos
             if (user != string.Empty && pass != string.Empty)
             {
                 if (pass == pass2)
                 {
+                    //si las pass coinciden llamamos al metodo de registrar el usuario
                     if (reg.registerUser(user, pass, photoPath))
                     {
                         MessageBox.Show("Usuario registrado correctamente", "Éxito");

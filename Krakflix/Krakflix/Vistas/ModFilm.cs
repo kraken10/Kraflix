@@ -32,6 +32,7 @@ namespace Krakflix.Vistas
         }
         private void cargarGenres()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -42,6 +43,7 @@ namespace Krakflix.Vistas
         }
         private void cargarGenresMod()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -52,6 +54,7 @@ namespace Krakflix.Vistas
         }
         private void imgPeli_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -64,6 +67,7 @@ namespace Krakflix.Vistas
 
         private void btnRuta_Click(object sender, EventArgs e)
         {
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Video Files | *.avi *.mkv | All Files | *.*";
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -73,6 +77,7 @@ namespace Krakflix.Vistas
                 lblCorrecto.Visible = true;
             }
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)
@@ -97,7 +102,8 @@ namespace Krakflix.Vistas
             {
                 var allFilms = filmsRepo.GetAll();
                 Film filmToedit = filmsRepo.GetBytitle(allFilms, filmListBoxSelected).FirstOrDefault();
-
+                //recogemos la pelicula a modificar y vamos comparando si los datos introducidos son distintos a los que tiene.
+                //en ese caso se los asignamos
                 if (filmToedit.Title != txtTitle.Text)
                     filmToedit.Title = txtTitle.Text;
                 if (filmToedit.Duration.ToString() != txtDuration.Text)
@@ -115,7 +121,7 @@ namespace Krakflix.Vistas
                 if (!string.IsNullOrEmpty(txtUrl.Text))
                     filmToedit.Path = txtUrl.Text;
                 
-
+                //comprobamos campos vacios o incorrectos
                 if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtDuration.Text) || string.IsNullOrEmpty(txtYear.Text) || string.IsNullOrEmpty(txtRate.Text) || getGenre(cmbGenreMod.SelectedItem.ToString()) == -1
                     || string.IsNullOrEmpty(txtDescription.Text))
                 {
@@ -123,12 +129,14 @@ namespace Krakflix.Vistas
                 }
                 else
                 {
+                    //si todo ha ido bien llamamos al metodo para modificar
                     if (filmcontroller.modificarPeli(filmToedit) != true)
                     {
                         MessageBox.Show("Ha ocurrido un error al modificar la pelicula", "Error");
                     }
                     else
                     {
+                        //reiniciamos campos y parametros
                         MessageBox.Show("Película modificada", "Éxito");
                         txtDuration.Text = "";
                         txtTitle.Text = "";
@@ -151,6 +159,7 @@ namespace Krakflix.Vistas
             }
         }
 
+        //metodo que muestra en la vista los datos de la pelicula
         private void showFilm(Film film)
         {
             txtTitle.Text = "";
@@ -167,7 +176,7 @@ namespace Krakflix.Vistas
             cmbGenreMod.Text = getGenre(film.IdGenre);
             txtRate.Text = film.Rate.ToString();
             txtDescription.Text = film.Description;
-            if (film.Path.Contains("http"))
+            if (film.Path.Contains("http") || film.Path.Contains("www"))
                 txtUrl.Text = film.Path;
             try
             {
@@ -177,9 +186,9 @@ namespace Krakflix.Vistas
             {
 
             }
-
-
+            
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public string getGenre(int genre)
         {
             switch (genre)
@@ -197,7 +206,7 @@ namespace Krakflix.Vistas
             }
             return "No asignado";
         }
-
+        
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             cargarPeliculas();
@@ -205,6 +214,7 @@ namespace Krakflix.Vistas
         }
         public void cargarPeliculas()
         {
+            //muestra las peliculas en el listBox
             filmsRepo = new FilmRepository();
             string genre = cmbGenres.SelectedItem != null ? cmbGenres.SelectedItem.ToString() : string.Empty;
             int genreInt = getGenre(genre);
@@ -220,6 +230,7 @@ namespace Krakflix.Vistas
 
         private void listBoxPelis_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //lanza la query con la pelicula seleccionada en el listbox para mostrarla en la vista
             try
             {
                 filmListBoxSelected = listBoxPelis.SelectedItem.ToString();

@@ -24,11 +24,14 @@ namespace Krakflix.Vistas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            //recogemos los datos de los campos
             string oldPass = txtPassOld.Text;
             string newPass = txtPassNew.Text;
+            //recogemos el usuario de la BDD
             User UserToModify = userRepo.GetbyId(_user.IdUser).SingleOrDefault();
             UserToModify.Password = newPass;
             if (oldPass != newPass && oldPass == _user.Password)
+                //si los campos son correctos llamamos al metodo para modificar la pass y cerramos la ventana.
                 if (userctr.cambiarPass(UserToModify))
                 {
                     MessageBox.Show("Password cambiada con éxito", "Éxito");

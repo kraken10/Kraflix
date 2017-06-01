@@ -1,5 +1,6 @@
 ﻿using Krakflix.Controlador;
 using Krakflix.Modelo;
+using Krakflix.Properties;
 using Krakflix.Vistas;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace Krakflix
 
         private void PlayerPeli_MouseMoveEvent(object sender, AxWMPLib._WMPOCXEvents_MouseMoveEvent e)
         {
+            //cuando el raton esta en el video el video se para y saldra un label para seleccionar 
             WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)PlayerPeli.Ctlcontrols;
             controls.pause();
             lblVideoPeli.Visible = true;
@@ -39,6 +41,7 @@ namespace Krakflix
 
         private void Principal_MouseEnter(object sender, EventArgs e)
         {
+            //cuando se abre el form los dos videos se ponen en marcha
             try
             {
                 WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)PlayerPeli.Ctlcontrols;
@@ -48,16 +51,13 @@ namespace Krakflix
                 lblVideoPeli.Visible = false;
                 lblVideoSerie.Visible = false;
             }
-            catch (Exception)
-            {
-                
-            }
-
-
+            catch (Exception) { }
+            
         }
 
         private void PlayerSerie_MouseMoveEvent(object sender, AxWMPLib._WMPOCXEvents_MouseMoveEvent e)
         {
+            //cuando el raton esta en el video el video se para y saldra un label para seleccionar 
             WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)PlayerSerie.Ctlcontrols;
             controls.pause();
             lblVideoSerie.Visible = true;
@@ -65,18 +65,21 @@ namespace Krakflix
 
         private void VideoPelisClick(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
+            //evento que muestra la vista de peliculas
             PeliculasView pelis = new PeliculasView(_user);
             pelis.Show();
         }
 
         private void lblVideoPelisClick(object sender, EventArgs e)
         {
+            //evento que muestra la vista de peliculas
             PeliculasView pelis = new PeliculasView(_user);
             pelis.Show();
         }
 
         private void VideoSeriesClick(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
+            //evento que muestra la vista de series
             SeriesView series = new SeriesView(_user);
             series.Show();
         }
@@ -89,37 +92,42 @@ namespace Krakflix
             }
             catch (Exception)
             {
-                imgUser.Image = Image.FromFile(@"C:\Users\Borja\Source\Repos\Kraflix\Krakflix\Krakflix\Resources\defaultPhoto1.png");
+                imgUser.Image = Resources.defaultPhoto1;
             }
 
         }
 
         private void lblVideoSerie_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de series
             SeriesView series = new SeriesView(_user);
             series.Show();
         }
 
         private void lblAñadirPeli_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de añadir pelicula
             AddFilm addfilm = new AddFilm(_user);
             addfilm.Show();
         }
 
         private void lblModificarPeli_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de modificar pelicula
             ModFilm modifyFilm = new ModFilm(_user);
             modifyFilm.Show();
         }
 
         private void lblEliminarPeli_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de borrar pelicula
             RemoveFilm remFilm = new RemoveFilm(_user);
             remFilm.Show();
         }
 
         private void lblPass_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de modificar la pass
             ModUser userMod = new ModUser(_user);
             userMod.Show();
         }
@@ -127,7 +135,7 @@ namespace Krakflix
         private void lblFoto_Click(object sender, EventArgs e)
         {
             userctrl = new UserController();
-            //string photo = "";
+            //abrimos un dialogo para que el usuario pueda indicar la ruta del archivo
             OpenFileDialog dialog = new OpenFileDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -144,25 +152,24 @@ namespace Krakflix
 
         private void lblAñadirSerie_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de añadir serie
             AddSerie addSerie = new AddSerie(_user);
             addSerie.Show();
         }
 
         private void lblModificarSerie_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de modificar serie
             ModSerie modSerie = new ModSerie(_user);
             modSerie.Show();
         }
 
         private void lblEliminarSerie_Click(object sender, EventArgs e)
         {
+            //evento que muestra la vista de borrar serie
             RemoveSerie remSerie = new RemoveSerie(_user);
             remSerie.Show();
         }
-
-        private void panelPrueba_Enter(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

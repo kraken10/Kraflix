@@ -29,6 +29,7 @@ namespace Krakflix.Vistas
         }
         public void CargarGenres()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -40,6 +41,7 @@ namespace Krakflix.Vistas
 
         public void cargarPeliculas()
         {
+            //cargamos las peliculas en el listBox
             filmsRepo = new FilmRepository();
             string genre = cmbGenres.SelectedItem != null ? cmbGenres.SelectedItem.ToString() : string.Empty;
             int genreInt = getGenre(genre);
@@ -63,15 +65,14 @@ namespace Krakflix.Vistas
         {
             try
             {
+                //cuando seleccionamos del listbox un item lo mostramos en la vista
                 filmSelected = listBoxPelis.SelectedItem.ToString();
                 var allFilms = filmsRepo.GetAll();
                 Film filmtoShow = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
+                //metodo que rellena los campos con los parametros
                 showFilm(filmtoShow);
             }
-            catch (NullReferenceException)
-            {
-
-            }
+            catch (NullReferenceException) {}
 
         }
 
@@ -104,22 +105,27 @@ namespace Krakflix.Vistas
         {
             try
             {
+                //recogemos la pelicula a reproducir
                 var allFilms = filmsRepo.GetAll();
                 Film filmtoPlay = filmsRepo.GetBytitle(allFilms, filmSelected).FirstOrDefault();
                 if (filmtoPlay != null)
                 {
+                    //si la pelicula es una URL...
                     if (filmtoPlay.Path.Contains("http"))
                     {
+                        //si es un link de youtube abriremos una ventana para reproducir la pelicula
                         if (filmtoPlay.Path.Contains("youtube"))
                         {
                             VideoOnline v = new VideoOnline(filmtoPlay.Path);
                             v.Show();
                         }
                         else
+                            //sino abriremos el navegador con la url donde se encuentra la pelicula
                             Process.Start(filmtoPlay.Path);
                     }
                     else
                     {
+                        //y si no es ninguna de las anteriores abrimos el windows media player
                         Process.Start("wmplayer", filmtoPlay.Path);
                     }
                 }
@@ -132,6 +138,7 @@ namespace Krakflix.Vistas
             }
 
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)

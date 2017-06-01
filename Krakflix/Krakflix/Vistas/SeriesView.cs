@@ -30,6 +30,7 @@ namespace Krakflix.Vistas
         }
         public void CargarGenres()
         {
+            //cargamos los generos en el combo
             genres = new GenreRepository();
             var genresList = genres.GetAll().ToList();
 
@@ -41,6 +42,7 @@ namespace Krakflix.Vistas
 
         public void cargarSeries(User user)
         {
+            //cargamos las series en el listBox
             serieRepo = new SerieRepository();
             string genre = cmbGenresSerie.SelectedItem != null ? cmbGenresSerie.SelectedItem.ToString() : string.Empty;
             int genreInt = getGenre(genre);
@@ -57,9 +59,11 @@ namespace Krakflix.Vistas
 
         private void listBoxSeries_DoubleClick(object sender, EventArgs e)
         {
+            //al seleccionar una serie del listbox se mostrará en la vista
             serieSelected = listBoxSeries.SelectedItem.ToString();
             var allSeries = serieRepo.getAll();
             Serie serietoShow = serieRepo.GetBytitle(allSeries, serieSelected).FirstOrDefault();
+            //metodo que rellena los campos a mostrar
             showSerie(serietoShow);
         }
         private void showSerie(Serie serie)
@@ -92,6 +96,7 @@ namespace Krakflix.Vistas
         }
         private void cargarCap(string idSerie, int temp)
         {
+            //carga los capitulos en el comboBox para poder reproducirlos
             var allChapters = chapterRepo.getAll();
             List<Chapter> chapterbyId = chapterRepo.getById(allChapters, serieSelected, temp).ToList();
             cmbCaps.Items.Clear();
@@ -106,22 +111,27 @@ namespace Krakflix.Vistas
         {
             try
             {
+                //recogemos el capitulo a reproducir
                 var allchapter = chapterRepo.getAll();
                 int tempSelected = (int)cmbTemp.SelectedItem;
                 string chapterTitle = cmbCaps.SelectedItem.ToString();
                 Chapter chapterToPlay = chapterRepo.getChapterToPlay(allchapter, serieSelected, tempSelected, chapterTitle).FirstOrDefault();
+                //si la pelicula es una URL...
                 if (chapterToPlay.Path.Contains("http"))
                 {
+                    //si es un link de youtube abriremos una ventana para reproducir la pelicula
                     if (chapterToPlay.Path.Contains("youtube"))
                     {
                         VideoOnline v = new VideoOnline(chapterToPlay.Path);
                         v.Show();
                     }
                     else
+                        //sino abriremos el navegador con la url donde se encuentra la pelicula
                         Process.Start(chapterToPlay.Path);
                 }
                 else
                 {
+                    //y si no es ninguna de las anteriores abrimos el windows media player
                     Process.Start("wmplayer", chapterToPlay.Path);
                 }
             }
@@ -131,6 +141,7 @@ namespace Krakflix.Vistas
             }
 
         }
+        //metodo que devuelve el id del genero para hacer la query en BDD
         public int getGenre(string genre)
         {
             switch (genre)
@@ -148,14 +159,14 @@ namespace Krakflix.Vistas
             }
             return -1;
         }
-
+        //metodo que al cambiar el cmb de las temporadas refresca el combo de capitulos
         private void cmbTemp_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tempSelected = (int)cmbTemp.SelectedItem;
             cargarCap(serieSelected, tempSelected);
 
         }
-
+        //metodo que al cambiar el cmb de las temporadas refresca el combo de capitulos
         private void cmbTemp_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int tempSelected = (int)cmbTemp.SelectedItem;
