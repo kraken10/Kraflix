@@ -288,9 +288,9 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(577, 453);
+            this.btnModify.Location = new System.Drawing.Point(574, 458);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(87, 65);
+            this.btnModify.Size = new System.Drawing.Size(87, 31);
             this.btnModify.TabIndex = 31;
             this.btnModify.Text = "Modificar";
             this.btnModify.UseVisualStyleBackColor = true;
