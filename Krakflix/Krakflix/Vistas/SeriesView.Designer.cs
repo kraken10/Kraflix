@@ -153,6 +153,7 @@ namespace Krakflix.Vistas
             this.listBoxSeries.Name = "listBoxSeries";
             this.listBoxSeries.Size = new System.Drawing.Size(253, 340);
             this.listBoxSeries.TabIndex = 11;
+            this.listBoxSeries.SelectedIndexChanged += new System.EventHandler(this.listBoxSeries_SelectedIndexChanged);
             this.listBoxSeries.DoubleClick += new System.EventHandler(this.listBoxSeries_DoubleClick);
             // 
             // lblTituloSerieDescripcion

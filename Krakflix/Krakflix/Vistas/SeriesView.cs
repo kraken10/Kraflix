@@ -25,6 +25,7 @@ namespace Krakflix.Vistas
         public SeriesView(User user)
         {
             InitializeComponent();
+            imgSerie.Image = Resources.NoPhoto;
             _user = user;
             CargarGenres();
         }
@@ -176,6 +177,11 @@ namespace Krakflix.Vistas
         private void btnBuscarSerie_Click(object sender, EventArgs e)
         {
             cargarSeries(_user);
+        }
+
+        private void listBoxSeries_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

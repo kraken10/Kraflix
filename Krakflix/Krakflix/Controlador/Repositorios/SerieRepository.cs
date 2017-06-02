@@ -23,7 +23,7 @@ namespace Krakflix.Controlador.Repositorios
         //devuelve la serie indicandole el idSerie
         public IQueryable<Serie> GetById(IQueryable<Serie> series, string serieSelected)
         {
-            var query = series.Where(x => x.IdSerie == serieSelected);
+            var query = series.Where(x => x.Title == serieSelected);
 
             return query;
         }

@@ -96,7 +96,7 @@ namespace Krakflix.Vistas
             }
             return "";
         }
-        
+
         public void cargarSeries(User user)
         {
             //metodo que carga las series en el listbox
@@ -123,29 +123,38 @@ namespace Krakflix.Vistas
             showSerie(serietoShow);
             btnCapitulosMod.Enabled = true;
             btnAddChap.Enabled = true;
-            
+
         }
         private void showSerie(Serie serie)
         {
-            txtTitle.Text = "";
-            txtTemporadas.Text = "";
-            txtYear.Text = "";
-            txtRate.Text = "";
-            txtDescription.Text = "";
-            txtTitle.Text = serie.Title;
-            txtTemporadas.Text =  serie.NumTemp.ToString();
-            cmbGenreMod.Text = getGenre(serie.IdGenre);
-            txtYear.Text = serie.Year.ToString();
-            txtRate.Text = serie.Rate.ToString();
-            txtDescription.Text = serie.Description;
-            if(serie.PhotoPath == "")
+            try
             {
-                var bitmap = new Bitmap(Resources.NoPhoto);
-                imgSerie.Image = bitmap;
-            }else
-                imgSerie.Image = Image.FromFile(serie.PhotoPath);
+                txtTitle.Text = "";
+                txtTemporadas.Text = "";
+                txtYear.Text = "";
+                txtRate.Text = "";
+                txtDescription.Text = "";
+                txtTitle.Text = serie.Title;
+                txtTemporadas.Text = serie.NumTemp.ToString();
+                cmbGenreMod.Text = getGenre(serie.IdGenre);
+                txtYear.Text = serie.Year.ToString();
+                txtRate.Text = serie.Rate.ToString();
+                txtDescription.Text = serie.Description;
+                if (serie.PhotoPath == "")
+                {
+                    var bitmap = new Bitmap(Resources.NoPhoto);
+                    imgSerie.Image = bitmap;
+                }
+                else
+                    imgSerie.Image = Image.FromFile(serie.PhotoPath);
 
-            serieSelected = serie.IdSerie;
+                serieSelected = serie.IdSerie;
+            }
+            catch (Exception)
+            {
+                imgSerie.Image = Resources.NoPhoto;
+            }
+
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -202,14 +211,14 @@ namespace Krakflix.Vistas
                 MessageBox.Show("Campos Rellenados incorrectamente" + q.Message, "Error");
             }
         }
-        
+
         private void btnAddChap_Click_1(object sender, EventArgs e)
         {
             //mostramos la vista de añadir capitulo
             AddChapter addChapter = new AddChapter(serieSelected);
             addChapter.Show();
         }
-        
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //carga las series en el listBox al pulsar el boton de buscar.
